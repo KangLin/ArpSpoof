@@ -44,4 +44,5 @@ private:
 	int InitInterfaceList();
 public:
 	static int ListInterface(pcap_if_t * d, void * pPara);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

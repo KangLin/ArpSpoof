@@ -50,10 +50,10 @@ END_MESSAGE_MAP()
 CArpSpoofDlg::CArpSpoofDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CArpSpoofDlg::IDD, pParent)
 	, szLocalMac(_T(""))
-	, szHostMac(_T(""))
+	, szHostMac(_T("ba0987654321"))
 	, szGatewayIp(_T("192.168.1.1"))
-	, szHostIp(_T(""))
-	, szGatewayMac(_T(""))
+	, szHostIp(_T("192.168.1.253"))
+	, szGatewayMac(_T("1234567890ab"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -76,6 +76,7 @@ BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDOK, &CArpSpoofDlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDCANCEL, &CArpSpoofDlg::OnBnClickedCancel)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -166,22 +167,15 @@ HCURSOR CArpSpoofDlg::OnQueryDragIcon()
 
 void CArpSpoofDlg::OnBnClickedOk()
 {
-	COMBOBOXEXITEM Item;
-	UpdateData();
-	TRACE(szGatewayMac);
-	CString szInterfaceName;
-	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
-	Item.mask = CBEIF_TEXT;
-	Item.iItem = m_cmbInterfaceList.GetCurSel();
+	KillTimer(0);
+	SetTimer(0, 3000, NULL);
 
-	m_cmbInterfaceList.GetItem(&Item);
-	szInterfaceName = Item.pszText;
-	TRACE(_T("%s\n"), szInterfaceName);
 	//OnOK();
 }
 
 void CArpSpoofDlg::OnBnClickedCancel()
 {
+	KillTimer(0);
 	OnCancel();
 }
 
@@ -206,4 +200,28 @@ int CArpSpoofDlg::ListInterface(pcap_if_t * d, void * pPara)
 	TRACE(_T("%s\n"), d->name);
 
 	return 0;
+}
+
+void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	USES_CONVERSION;
+	int nIndex = 0;
+
+	COMBOBOXEXITEM Item;
+	UpdateData();
+	TRACE(szGatewayMac);
+	CString szInterfaceName;
+	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
+	Item.mask = CBEIF_TEXT;
+	nIndex = m_cmbInterfaceList.GetCurSel();
+
+	m_cmbInterfaceList.GetLBText(nIndex, szInterfaceName);
+
+	TRACE(_T("%s\n"), szInterfaceName);
+
+	ArpSpoof(T2A((LPTSTR)(LPCTSTR)szInterfaceName), T2A((LPTSTR)(LPCTSTR)szGatewayIp),
+		T2A((LPTSTR)(LPCTSTR)szGatewayMac), T2A((LPTSTR)(LPCTSTR)szHostIp),
+		T2A((LPTSTR)(LPCTSTR)szHostMac), T2A((LPTSTR)(LPCTSTR)szLocalMac));
+
+	CDialog::OnTimer(nIDEvent);
 }

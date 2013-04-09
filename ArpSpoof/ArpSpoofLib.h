@@ -155,4 +155,5 @@ int ArpSpoof(
 			 int nInterval = 1000/*ms*/
 			 );
 
+int GetMac( /*[in]*/char * pszIp, /*[out]*/unsigned char * Mac);
 #endif 
