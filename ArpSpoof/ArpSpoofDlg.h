@@ -3,7 +3,7 @@
 
 #pragma once
 #include "afxcmn.h"
-
+#include "ArpSpoofLib.h"
 
 // CArpSpoofDlg ¶Ô»°¿ò
 class CArpSpoofDlg : public CDialog
@@ -42,4 +42,6 @@ public:
 private:
 	CComboBoxEx m_cmbInterfaceList;
 	int InitInterfaceList();
+public:
+	static int ListInterface(pcap_if_t * d, void * pPara);
 };

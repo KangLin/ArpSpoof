@@ -166,8 +166,17 @@ HCURSOR CArpSpoofDlg::OnQueryDragIcon()
 
 void CArpSpoofDlg::OnBnClickedOk()
 {
+	COMBOBOXEXITEM Item;
 	UpdateData();
 	TRACE(szGatewayMac);
+	CString szInterfaceName;
+	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
+	Item.mask = CBEIF_TEXT;
+	Item.iItem = m_cmbInterfaceList.GetCurSel();
+
+	m_cmbInterfaceList.GetItem(&Item);
+	szInterfaceName = Item.pszText;
+	TRACE(_T("%s\n"), szInterfaceName);
 	//OnOK();
 }
 
@@ -179,6 +188,22 @@ void CArpSpoofDlg::OnBnClickedCancel()
 int CArpSpoofDlg::InitInterfaceList()
 {
 	int nRet = 0;
-	
+	nRet = ListInterfaceInfomation(ListInterface, this);
 	return nRet;
+}
+
+int CArpSpoofDlg::ListInterface(pcap_if_t * d, void * pPara)
+{
+	USES_CONVERSION;
+	CArpSpoofDlg * pThis = (CArpSpoofDlg * )pPara;
+
+	COMBOBOXEXITEM   Item;
+	Item.mask = CBEIF_TEXT;
+	Item.pszText = d->name;
+	Item.iItem = pThis->m_cmbInterfaceList.GetCount(); //index 
+	pThis->m_cmbInterfaceList.InsertItem(&Item);
+	pThis->m_cmbInterfaceList.SetCurSel(0);
+	TRACE(_T("%s\n"), d->name);
+
+	return 0;
 }
