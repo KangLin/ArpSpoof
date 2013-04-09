@@ -73,7 +73,9 @@ char * ip6tos(struct sockaddr * sockaddr, char * address, int addrlen);
 \author  康  林
 \date    2013/4/5 10:02:39
 */
-void ifprint(pcap_if_t * d);
+int ifprint(pcap_if_t * d);
+
+typedef int (*IfPrintCallBack)(pcap_if_t*d);
 
 /*!
 \brief   显示接口信息
@@ -83,7 +85,7 @@ void ifprint(pcap_if_t * d);
 \author  康  林
 \date    2013/4/5 10:02:08
 */
-int ListInterfaceInfomation();
+int ListInterfaceInfomation(IfPrintCallBack *callBack = NULL);
 
 /** 
 * 获得网卡的MAC地址 

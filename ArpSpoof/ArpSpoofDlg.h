@@ -2,6 +2,7 @@
 //
 
 #pragma once
+#include "afxcmn.h"
 
 
 // CArpSpoofDlg ¶Ô»°¿ò
@@ -38,4 +39,7 @@ private:
 public:
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
+private:
+	CComboBoxEx m_cmbInterfaceList;
+	int InitInterfaceList();
 };

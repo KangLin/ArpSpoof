@@ -50,7 +50,7 @@ char* ip6tos(struct sockaddr *sockaddr, char *address, int addrlen)
 }
 
 /* Print all the available information on the given interface */
-void ifprint(pcap_if_t *d)
+int ifprint(pcap_if_t *d)
 {
 	pcap_addr_t *a;
 	char ip6str[128];
@@ -99,15 +99,20 @@ void ifprint(pcap_if_t *d)
 		}
 	}
 	printf("\n");
+	return 0;
 }
 
-int ListInterfaceInfomation()
+int ListInterfaceInfomation(IfPrintCallBack callBack)
 {
+	int nRet = 0;
 	char errbuf[PCAP_ERRBUF_SIZE];    //错误缓冲区 
 	pcap_if_t * d;
 	pcap_if_t * Devs;
 	pcap_addr * pAddr;
 	int i = 0;
+
+	if(NULL == callBack)
+		callBack = ifprint;
 
 	/* 获得本机网卡列表 */ 
 	if (pcap_findalldevs_ex(PCAP_SRC_IF_STRING, NULL, &Devs, errbuf) == -1) 
@@ -120,7 +125,10 @@ int ListInterfaceInfomation()
 	d = Devs;
 	while(d)
 	{
-		ifprint(d);
+		nRet = callBack(d);
+		if(nRet)
+			break;
+
 		d = d->next;
 	} // 结束 while(d)
 
