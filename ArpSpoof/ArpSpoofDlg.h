@@ -45,4 +45,5 @@ private:
 public:
 	static int ListInterface(pcap_if_t * d, void * pPara);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg void OnBnClickedButtonHost();
 };

@@ -573,6 +573,13 @@ int GetMac( /*[in]*/char * pszIp, /*[out]*/unsigned char * Mac)
 	return nRet;
 }
 
+const char * GetMacString(unsigned char * pMac)
+{
+	static unsigned char MAC[6];
+
+	return MAC;	
+}
+
 //
 //int main(int argc,char* argv[]){ 
 //	pcap_if_t *alldevs;               //全部网卡列表 

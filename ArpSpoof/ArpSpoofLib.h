@@ -155,5 +155,25 @@ int ArpSpoof(
 			 int nInterval = 1000/*ms*/
 			 );
 
+/*!
+\brief   根据IP得到相应的MAC地址
+\param   char * pszIp       ：指定的IP。输入参数
+\param   unsigned char * Mac：MAC地址。输出参数
+\return  类型为 int 。
+\version 1.0.0.1
+\author  康  林
+\date    2013-4-10 8:33:53
+*/
 int GetMac( /*[in]*/char * pszIp, /*[out]*/unsigned char * Mac);
+
+/*!
+\brief   把MAC数组转换成字符串。非线程安全
+\param   unsigned char * pMac：MAC地址数组
+\return  类型为 const char* ：转换后的MAC地址字符串。
+\version 1.0.0.1
+\author  康  林
+\date    2013-4-10 8:37:37
+*/
+const char* GetMacString(unsigned char * pMac);
+
 #endif 

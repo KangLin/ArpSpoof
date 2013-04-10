@@ -50,10 +50,10 @@ END_MESSAGE_MAP()
 CArpSpoofDlg::CArpSpoofDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CArpSpoofDlg::IDD, pParent)
 	, szLocalMac(_T(""))
-	, szHostMac(_T("ba0987654321"))
+	, szHostMac(_T(""))
 	, szGatewayIp(_T("192.168.1.1"))
 	, szHostIp(_T("192.168.1.253"))
-	, szGatewayMac(_T("1234567890ab"))
+	, szGatewayMac(_T("74ea3a28971c"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -77,6 +77,7 @@ BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
 	ON_BN_CLICKED(IDOK, &CArpSpoofDlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDCANCEL, &CArpSpoofDlg::OnBnClickedCancel)
 	ON_WM_TIMER()
+	ON_BN_CLICKED(IDC_BUTTON_HOST, &CArpSpoofDlg::OnBnClickedButtonHost)
 END_MESSAGE_MAP()
 
 
@@ -224,4 +225,10 @@ void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 		T2A((LPTSTR)(LPCTSTR)szHostMac), T2A((LPTSTR)(LPCTSTR)szLocalMac));
 
 	CDialog::OnTimer(nIDEvent);
+}
+
+void CArpSpoofDlg::OnBnClickedButtonHost()
+{
+	UpdateData();
+	GetMac(szHostIp)
 }
