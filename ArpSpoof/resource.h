@@ -17,6 +17,8 @@
 #define IDC_CMB_INTERFACE_LIST          1005
 #define IDC_BTN_HOST                    1006
 #define IDC_BUTTON_HOST                 1006
+#define IDC_BUTTON_HOST2                1007
+#define IDC_BUTTON_GATEWAY              1007
 
 // Next default values for new objects
 // 

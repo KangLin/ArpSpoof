@@ -575,9 +575,11 @@ int GetMac( /*[in]*/char * pszIp, /*[out]*/unsigned char * Mac)
 
 const char * GetMacString(unsigned char * pMac)
 {
-	static unsigned char MAC[6];
-
-	return MAC;	
+	static char strMAC[20];
+	sprintf(strMAC, "%2X%2X%2X%2X%2X%2X",
+		pMac[0], pMac[1], pMac[2],
+		pMac[3], pMac[4], pMac[5]);
+	return strMAC;	
 }
 
 //

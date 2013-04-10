@@ -78,6 +78,7 @@ BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
 	ON_BN_CLICKED(IDCANCEL, &CArpSpoofDlg::OnBnClickedCancel)
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_BUTTON_HOST, &CArpSpoofDlg::OnBnClickedButtonHost)
+	ON_BN_CLICKED(IDC_BUTTON_GATEWAY, &CArpSpoofDlg::OnBnClickedButtonGateway)
 END_MESSAGE_MAP()
 
 
@@ -229,6 +230,32 @@ void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 
 void CArpSpoofDlg::OnBnClickedButtonHost()
 {
+	USES_CONVERSION;
+	int nRet = 0;
+	unsigned char Mac[6];
 	UpdateData();
-	GetMac(szHostIp)
+	nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szHostIp), Mac);
+	if(nRet)
+	{
+		return;
+	}// ½áÊø if(nRet)
+
+	szHostMac = GetMacString(Mac);
+	UpdateData(FALSE);
+}
+
+void CArpSpoofDlg::OnBnClickedButtonGateway()
+{
+	USES_CONVERSION;
+	int nRet = 0;
+	unsigned char Mac[6];
+	UpdateData();
+	nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szGatewayIp), Mac);
+	if(nRet)
+	{
+		return;
+	}// ½áÊø if(nRet)
+
+	szGatewayMac = GetMacString(Mac);
+	UpdateData(FALSE);
 }
