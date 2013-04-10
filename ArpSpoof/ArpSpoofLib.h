@@ -145,14 +145,12 @@ int BuildArpRequest(
 
 int ArpSpoof(
 		pcap_t * Handler, char * pszGatewayIp, char * pszGatewayMac,
-		char * pszHostIp, char * pszHostMac, char * pszLocalMac,
-		int nInterval = 1000/*ms*/
+		char * pszHostIp, char * pszHostMac, char * pszLocalMac
 		);
 
 int ArpSpoof(
 			 char* pszInterfaceName, char * pszGatewayIp, char * pszGatewayMac,
-			 char * pszHostIp, char * pszHostMac, char * pszLocalMac,
-			 int nInterval = 1000/*ms*/
+			 char * pszHostIp, char * pszHostMac, char * pszLocalMac
 			 );
 
 /*!

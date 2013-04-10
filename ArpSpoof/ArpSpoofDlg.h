@@ -47,4 +47,5 @@ public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnBnClickedButtonHost();
 	afx_msg void OnBnClickedButtonGateway();
+	afx_msg void OnCbnSelchangeCmbInterfaceList();
 };

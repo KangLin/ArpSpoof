@@ -79,6 +79,7 @@ BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_BUTTON_HOST, &CArpSpoofDlg::OnBnClickedButtonHost)
 	ON_BN_CLICKED(IDC_BUTTON_GATEWAY, &CArpSpoofDlg::OnBnClickedButtonGateway)
+	ON_CBN_SELCHANGE(IDC_CMB_INTERFACE_LIST, &CArpSpoofDlg::OnCbnSelchangeCmbInterfaceList)
 END_MESSAGE_MAP()
 
 
@@ -111,8 +112,10 @@ BOOL CArpSpoofDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
+	m_cmbInterfaceList.SetDroppedWidth(300);
 	//初始化接口列表
 	InitInterfaceList();
+	OnBnClickedButtonHost();
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -225,7 +228,7 @@ void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 		T2A((LPTSTR)(LPCTSTR)szGatewayMac), T2A((LPTSTR)(LPCTSTR)szHostIp),
 		T2A((LPTSTR)(LPCTSTR)szHostMac), T2A((LPTSTR)(LPCTSTR)szLocalMac));
 
-	CDialog::OnTimer(nIDEvent);
+	//CDialog::OnTimer(nIDEvent);
 }
 
 void CArpSpoofDlg::OnBnClickedButtonHost()
@@ -257,5 +260,25 @@ void CArpSpoofDlg::OnBnClickedButtonGateway()
 	}// 结束 if(nRet)
 
 	szGatewayMac = GetMacString(Mac);
+	UpdateData(FALSE);
+}
+
+void CArpSpoofDlg::OnCbnSelchangeCmbInterfaceList()
+{
+	USES_CONVERSION;
+	int nIndex = 0;
+	unsigned char mac[6];
+	COMBOBOXEXITEM Item;
+	UpdateData();
+
+	CString szInterfaceName;
+	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
+	Item.mask = CBEIF_TEXT;
+	nIndex = m_cmbInterfaceList.GetCurSel();
+
+	m_cmbInterfaceList.GetLBText(nIndex, szInterfaceName);
+
+	GetSelfMac((char*)(LPCTSTR)szInterfaceName, mac);
+	szLocalMac = GetMacString(mac);
 	UpdateData(FALSE);
 }
