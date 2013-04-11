@@ -117,6 +117,7 @@ BOOL CArpSpoofDlg::OnInitDialog()
 	m_cmbInterfaceList.SetDroppedWidth(300);
 	//初始化接口列表
 	InitInterfaceList();
+	OnCbnSelchangeCmbInterfaceList();
 	OnBnClickedButtonHost();
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -197,9 +198,9 @@ void CArpSpoofDlg::OnBnClickedOk()
 	LONG lRet = 0;
 	HKEY hkey;
 	DWORD value = 1;
-	lRet = SetValue_D(HKEY_LOCAL_MACHINE,
+	/*lRet = SetValue_D(HKEY_LOCAL_MACHINE,
 		"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameter\\", "IPEnableRouter",
-		value);
+		value);*/
 
 	KillTimer(0);
 	SetTimer(0, 3000, NULL);
@@ -243,7 +244,7 @@ void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 
 	COMBOBOXEXITEM Item;
 	UpdateData();
-	TRACE(szGatewayMac);
+	//TRACE("gateway mac:%s\n", szGatewayMac);
 	CString szInterfaceName;
 	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
 	Item.mask = CBEIF_TEXT;
@@ -251,7 +252,7 @@ void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 
 	m_cmbInterfaceList.GetLBText(nIndex, szInterfaceName);
 
-	TRACE(_T("%s\n"), szInterfaceName);
+	//TRACE(_T("interface name:%s\n"), szInterfaceName);
 
 	ArpSpoof(T2A((LPTSTR)(LPCTSTR)szInterfaceName), T2A((LPTSTR)(LPCTSTR)szGatewayIp),
 		T2A((LPTSTR)(LPCTSTR)szGatewayMac), T2A((LPTSTR)(LPCTSTR)szHostIp),
@@ -313,7 +314,7 @@ void CArpSpoofDlg::OnBnClickedButtonHost()
 	nRet = SendARP(inet_addr(szHostIp), inet_addr(m_szLocalIp), hostMac, &len);
 	if(NO_ERROR != nRet)
 	{
-		TRACE("SendARP error.nRet:%d", nRet);
+		TRACE("SendARP error.nRet:%d\n", nRet);
 		return;
 	} // 结束 if(NO_ERROR != nRet)
 
@@ -339,7 +340,7 @@ void CArpSpoofDlg::OnBnClickedButtonGateway()
 	ULONG len = MAC_LENGTH;
 	UpdateData();
 
-	nRet = SendARP(inet_addr(szHostIp), inet_addr(m_szLocalIp), Mac, &len);
+	nRet = SendARP(inet_addr(szGatewayIp), inet_addr(m_szLocalIp), Mac, &len);
 	if(NO_ERROR != nRet)
 	{
 		TRACE("SendARP error.nRet:%d", nRet);
