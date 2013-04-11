@@ -171,13 +171,40 @@ HCURSOR CArpSpoofDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+int SetValue_D(struct HKEY__ * ReRootKey, TCHAR * ReSubKey, TCHAR * ReValueName, DWORD data)
+{
+	int i = 0;	//操作结果：0==succeed
+	HKEY hKey = NULL;
+	if(RegOpenKeyEx(ReRootKey, ReSubKey, 0, KEY_WRITE, &hKey) == ERROR_SUCCESS)
+	{
+		if(RegSetValueEx(hKey, ReValueName, NULL, REG_DWORD,(const BYTE*) &data, 4) != ERROR_SUCCESS)
+		{
+			AfxMessageBox("错误：无法设置有关的注册表信息");
+			i=1;
+		}
+		RegCloseKey(hKey);
+	}
+	else
+	{
+		AfxMessageBox("错误：无法查询有关的注册表信息");
+		i=1;
+	}
+	return i;
+}
 
 void CArpSpoofDlg::OnBnClickedOk()
 {
+	LONG lRet = 0;
+	HKEY hkey;
+	DWORD value = 1;
+	lRet = SetValue_D(HKEY_LOCAL_MACHINE,
+		"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameter\\", "IPEnableRouter",
+		value);
+
 	KillTimer(0);
 	SetTimer(0, 3000, NULL);
 
-	//OnOK();
+	//OnOK(); 
 }
 
 void CArpSpoofDlg::OnBnClickedCancel()
