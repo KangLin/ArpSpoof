@@ -280,16 +280,25 @@ void CArpSpoofDlg::OnBnClickedButtonHost()
 	USES_CONVERSION;
 	int nRet = 0;
 	unsigned char hostMac[6];
-	
+	ULONG len = MAC_LENGTH;
 	UpdateData();
 
-	SendArpRequest(szHostIp);
-	Sleep(200);
-	nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szHostIp), hostMac);
-	if(nRet)
+	nRet = SendARP(inet_addr(szHostIp), inet_addr(m_szLocalIp), hostMac, &len);
+	if(NO_ERROR != nRet)
 	{
+		TRACE("SendARP error.nRet:%d", nRet);
 		return;
-	}// 结束 if(nRet)
+	} // 结束 if(NO_ERROR != nRet)
+
+
+
+	//SendArpRequest(szHostIp);
+	//Sleep(200);
+	//nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szHostIp), hostMac);
+	//if(nRet)
+	//{
+	//	return;
+	//}// 结束 (200)
 
 	szHostMac = GetMacString(hostMac);
 	UpdateData(FALSE);
@@ -300,14 +309,24 @@ void CArpSpoofDlg::OnBnClickedButtonGateway()
 	USES_CONVERSION;
 	int nRet = 0;
 	unsigned char Mac[6];
+	ULONG len = MAC_LENGTH;
 	UpdateData();
-	SendArpRequest(szGatewayIp);
-	Sleep(200);
-	nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szGatewayIp), Mac);
-	if(nRet)
+
+	nRet = SendARP(inet_addr(szHostIp), inet_addr(m_szLocalIp), Mac, &len);
+	if(NO_ERROR != nRet)
 	{
+		TRACE("SendARP error.nRet:%d", nRet);
 		return;
-	}// 结束 if(nRet)
+	}// 结束 if(NO_ERROR != nRet)
+
+	//UpdateData();
+	//SendArpRequest(szGatewayIp);
+	//Sleep(200);
+	//nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szGatewayIp), Mac);
+	//if(nRet)
+	//{
+	//	return;
+	//}// 结束 if(nRet)
 
 	szGatewayMac = GetMacString(Mac);
 	UpdateData(FALSE);
