@@ -339,6 +339,7 @@ int BuildArpRequest(
 	return nRet;
 }
 
+
 int BuildArpReply(
 					/*[in/out]*/struct arp_packet * pPacket,
 					/*[in]*/char * pSrcMac,

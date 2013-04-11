@@ -54,6 +54,7 @@ CArpSpoofDlg::CArpSpoofDlg(CWnd* pParent /*=NULL*/)
 	, szGatewayIp(_T("192.168.1.1"))
 	, szHostIp(_T("192.168.1.253"))
 	, szGatewayMac(_T("74ea3a28971c"))
+	, m_szLocalIp(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -67,6 +68,7 @@ void CArpSpoofDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_HOST_IP, szHostIp);
 	DDX_Text(pDX, IDC_EDIT_GATEWAY_MAC, szGatewayMac);
 	DDX_Control(pDX, IDC_CMB_INTERFACE_LIST, m_cmbInterfaceList);
+	DDX_Text(pDX, IDC_EDIT_LOCAL_IP, m_szLocalIp);
 }
 
 BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
@@ -231,19 +233,65 @@ void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 	//CDialog::OnTimer(nIDEvent);
 }
 
+int CArpSpoofDlg::SendArpRequest(CString szIp)
+{
+	USES_CONVERSION;
+	int nIndex = 0;
+	int nRet = 0;
+	struct arp_packet packet;
+	pcap_t * pHandler;
+	char errbuf[PCAP_ERRBUF_SIZE];    //´íÎó»º³åÇø 
+	COMBOBOXEXITEM Item;
+	
+	CString szInterfaceName;
+	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
+	Item.mask = CBEIF_TEXT;
+	nIndex = m_cmbInterfaceList.GetCurSel();
+
+	m_cmbInterfaceList.GetLBText(nIndex, szInterfaceName);
+
+	nRet = BuildArpRequest(&packet, T2A((LPTSTR)(LPCTSTR)szLocalMac), "FFFFFFFFFFFF",
+		T2A((LPTSTR)(LPCTSTR)m_szLocalIp), T2A((LPTSTR)(LPCTSTR)szHostIp));
+	/* ´ò¿ªÍø¿¨ */ 
+	if((pHandler = pcap_open((char*)(LPCTSTR)szInterfaceName, // name of the device 
+		65536, // portion of the packet to capture 
+		0, //open flag 
+		1000, // read timeout 
+		NULL, // authentication on the remote machine 
+		errbuf // error buffer 
+		) ) == NULL) 
+	{ 
+		TRACE("\nUnable to open the adapter. %s is not supported by WinPcap\n",
+			szInterfaceName); 
+		/* Free the device list */ 
+		return -1; 
+	} 
+
+	if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+	{
+		TRACE("pcap_sendpacket send arp spoof to gateway error.\n");
+	}
+
+	pcap_close(pHandler); 
+}
+
 void CArpSpoofDlg::OnBnClickedButtonHost()
 {
 	USES_CONVERSION;
 	int nRet = 0;
-	unsigned char Mac[6];
+	unsigned char hostMac[6];
+	
 	UpdateData();
-	nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szHostIp), Mac);
+
+	SendArpRequest(szHostIp);
+	Sleep(200);
+	nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szHostIp), hostMac);
 	if(nRet)
 	{
 		return;
 	}// ½áÊø if(nRet)
 
-	szHostMac = GetMacString(Mac);
+	szHostMac = GetMacString(hostMac);
 	UpdateData(FALSE);
 }
 
@@ -253,6 +301,8 @@ void CArpSpoofDlg::OnBnClickedButtonGateway()
 	int nRet = 0;
 	unsigned char Mac[6];
 	UpdateData();
+	SendArpRequest(szGatewayIp);
+	Sleep(200);
 	nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szGatewayIp), Mac);
 	if(nRet)
 	{

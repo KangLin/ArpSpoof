@@ -42,10 +42,13 @@ public:
 private:
 	CComboBoxEx m_cmbInterfaceList;
 	int InitInterfaceList();
+	int SendArpRequest(CString szIp);
 public:
 	static int ListInterface(pcap_if_t * d, void * pPara);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnBnClickedButtonHost();
 	afx_msg void OnBnClickedButtonGateway();
 	afx_msg void OnCbnSelchangeCmbInterfaceList();
+	
+	CString m_szLocalIp;
 };
