@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArpSpoof", "ArpSpoof\ArpSpo
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{A33BE274-0E80-4C7B-8D73-7CB48A1FC2C4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArpConsole", "ArpConsole\ArpConsole.vcproj", "{E16F4BFD-DE28-432D-9A34-4E0359349395}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -17,6 +19,10 @@ Global
 		{E253EAAD-3CED-4B7B-A8D3-FE33063CDCC9}.Release|Win32.Build.0 = Release|Win32
 		{A33BE274-0E80-4C7B-8D73-7CB48A1FC2C4}.Debug|Win32.ActiveCfg = Debug
 		{A33BE274-0E80-4C7B-8D73-7CB48A1FC2C4}.Release|Win32.ActiveCfg = Release
+		{E16F4BFD-DE28-432D-9A34-4E0359349395}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E16F4BFD-DE28-432D-9A34-4E0359349395}.Debug|Win32.Build.0 = Debug|Win32
+		{E16F4BFD-DE28-432D-9A34-4E0359349395}.Release|Win32.ActiveCfg = Release|Win32
+		{E16F4BFD-DE28-432D-9A34-4E0359349395}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -232,7 +232,8 @@ int CArpSpoofDlg::ListInterface(pcap_if_t * d, void * pPara)
 	Item.iItem = pThis->m_cmbInterfaceList.GetCount(); //index 
 	pThis->m_cmbInterfaceList.InsertItem(&Item);
 	pThis->m_cmbInterfaceList.SetCurSel(0);
-	TRACE(_T("%s\n"), d->name);
+	TRACE(_T("name:%s\n"), d->name);
+	TRACE(_T("description:%s\n"), d->description);
 
 	return 0;
 }

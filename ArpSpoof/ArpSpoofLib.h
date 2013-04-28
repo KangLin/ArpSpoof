@@ -79,7 +79,8 @@ typedef int (*IfPrintCallBack)(pcap_if_t*d, void *para);
 
 /*!
 \brief   显示接口信息
-\param   无
+\param   IfPrintCallBack callBack:回调函数
+         void * para：传给回调函数的参数指针
 \return  类型为 int 。
 \version 1.0
 \author  康  林

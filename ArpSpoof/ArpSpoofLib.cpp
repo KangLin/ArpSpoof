@@ -12,11 +12,17 @@
 #pragma comment(lib, "ws2_32.lib")
 #endif
 
+#ifdef MFC
+	#define LOG_DEBUG printf
+	#define LOG_ERROR printf
+	#define LOG_INFO printf
+#else
+	#define LOG_DEBUG printf
+	#define LOG_ERROR printf
+	#define LOG_INFO printf
+#endif
 
-#define LOG_DEBUG TRACE
-#define LOG_ERROR TRACE
-#define LOG_INFO TRACE
-
+int gDevIndex = 0;
 
 /* From tcptraceroute, convert a numeric IP address to a string */
 #define IPTOSBUFFERS	12
@@ -61,7 +67,7 @@ int ifprint(pcap_if_t *d, void *para)
 	char ip6str[128];
 
 	/* Name */
-	printf("%s\n",d->name);
+	printf("%d:%s\n", gDevIndex, d->name);
 
 	/* Description */
 	if (d->description)
@@ -128,8 +134,10 @@ int ListInterfaceInfomation(IfPrintCallBack callBack, void * para)
 
 	/* ´òÓ¡Íø¿¨ÁÐ±í */
 	d = Devs;
+	gDevIndex = 0;
 	while(d)
 	{
+		gDevIndex++;
 		nRet = callBack(d, para);
 		if(nRet)
 			break;
