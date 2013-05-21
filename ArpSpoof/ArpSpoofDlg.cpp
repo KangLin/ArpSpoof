@@ -55,6 +55,8 @@ CArpSpoofDlg::CArpSpoofDlg(CWnd* pParent /*=NULL*/)
 	, szHostIp(_T("192.168.1.253"))
 	, szGatewayMac(_T("74ea3a28971c"))
 	, m_szLocalIp(_T(""))
+	, m_bchkGateway(1)
+	, m_bchkHost(1)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -69,6 +71,8 @@ void CArpSpoofDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_GATEWAY_MAC, szGatewayMac);
 	DDX_Control(pDX, IDC_CMB_INTERFACE_LIST, m_cmbInterfaceList);
 	DDX_Text(pDX, IDC_EDIT_LOCAL_IP, m_szLocalIp);
+	DDX_Check(pDX, IDC_CHECK_GATEWAY, m_bchkGateway);
+	DDX_Check(pDX, IDC_CHECK_HOST, m_bchkHost);
 }
 
 BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
@@ -257,7 +261,8 @@ void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 
 	ArpSpoof(T2A((LPTSTR)(LPCTSTR)szInterfaceName), T2A((LPTSTR)(LPCTSTR)szGatewayIp),
 		T2A((LPTSTR)(LPCTSTR)szGatewayMac), T2A((LPTSTR)(LPCTSTR)szHostIp),
-		T2A((LPTSTR)(LPCTSTR)szHostMac), T2A((LPTSTR)(LPCTSTR)szLocalMac));
+		T2A((LPTSTR)(LPCTSTR)szHostMac), T2A((LPTSTR)(LPCTSTR)szLocalMac),
+		m_bchkGateway, m_bchkHost);
 
 	//CDialog::OnTimer(nIDEvent);
 }

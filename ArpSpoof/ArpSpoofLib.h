@@ -151,7 +151,8 @@ int ArpSpoof(
 
 int ArpSpoof(
 			 char* pszInterfaceName, char * pszGatewayIp, char * pszGatewayMac,
-			 char * pszHostIp, char * pszHostMac, char * pszLocalMac
+			 char * pszHostIp, char * pszHostMac, char * pszLocalMac,
+			 bool bGateway = true, bool bHost = true
 			 );
 
 /*!

