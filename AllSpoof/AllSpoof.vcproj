@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="ArpConsole"
-	ProjectGUID="{E16F4BFD-DE28-432D-9A34-4E0359349395}"
-	RootNamespace="ArpConsole"
+	Name="AllSpoof"
+	ProjectGUID="{BFAEE284-CBCE-4840-A5C0-4211F08B56AC}"
+	RootNamespace="AllSpoof"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -21,7 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="0"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -171,11 +171,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\ArpConsole.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\ArpSpoof\ArpSpoofLib.cpp"
+				RelativePath=".\AllSpoof.cpp"
 				>
 			</File>
 			<File
@@ -204,10 +200,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath="..\ArpSpoof\ArpSpoofLib.h"
-				>
-			</File>
 			<File
 				RelativePath=".\stdafx.h"
 				>

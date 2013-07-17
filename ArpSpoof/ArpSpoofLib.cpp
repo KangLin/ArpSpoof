@@ -126,10 +126,10 @@ int ListInterfaceInfomation(IfPrintCallBack callBack, void * para)
 		callBack = ifprint;
 
 	/* 获得本机网卡列表 */ 
-	if (pcap_findalldevs_ex(PCAP_SRC_IF_STRING, NULL, &Devs, errbuf) == -1) 
-	{ 
+	if (pcap_findalldevs_ex(PCAP_SRC_IF_STRING, NULL, &Devs, errbuf) == -1)
+	{
 		LOG_ERROR("Error in pcap_findalldevs: %s\n", errbuf);
-		return - 1;
+		return -1;
 	}
 
 	/* 打印网卡列表 */

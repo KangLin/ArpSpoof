@@ -155,6 +155,11 @@ int ArpSpoof(
 			 bool bGateway = true, bool bHost = true
 			 );
 
+int ArpSpoof(
+			 char * pszInterfaceName, char * pszGatewayIp,
+			 char * pszHostIp, int nInterval /*ms*/
+			 );
+
 /*!
 \brief   根据IP得到相应的MAC地址
 \param   char * pszIp       ：指定的IP。输入参数
