@@ -57,6 +57,7 @@ CArpSpoofDlg::CArpSpoofDlg(CWnd* pParent /*=NULL*/)
 	, m_szLocalIp(_T(""))
 	, m_bchkGateway(1)
 	, m_bchkHost(1)
+	, m_szFileName(_T("c:\\windows\\wincap.cap"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -73,6 +74,7 @@ void CArpSpoofDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_LOCAL_IP, m_szLocalIp);
 	DDX_Check(pDX, IDC_CHECK_GATEWAY, m_bchkGateway);
 	DDX_Check(pDX, IDC_CHECK_HOST, m_bchkHost);
+	DDX_Text(pDX, IDC_EDIT1, m_szFileName);
 }
 
 BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
@@ -86,6 +88,8 @@ BEGIN_MESSAGE_MAP(CArpSpoofDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_HOST, &CArpSpoofDlg::OnBnClickedButtonHost)
 	ON_BN_CLICKED(IDC_BUTTON_GATEWAY, &CArpSpoofDlg::OnBnClickedButtonGateway)
 	ON_CBN_SELCHANGE(IDC_CMB_INTERFACE_LIST, &CArpSpoofDlg::OnCbnSelchangeCmbInterfaceList)
+	ON_BN_CLICKED(IDC_BUTTON1, &CArpSpoofDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CArpSpoofDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -202,20 +206,22 @@ void CArpSpoofDlg::OnBnClickedOk()
 	LONG lRet = 0;
 	HKEY hkey;
 	DWORD value = 1;
+	//写完注册表后要重启机器才能生效。进行路由转发
 	/*lRet = SetValue_D(HKEY_LOCAL_MACHINE,
 		"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameter\\", "IPEnableRouter",
 		value);*/
 
 	KillTimer(0);
 	SetTimer(0, 3000, NULL);
-
-	//OnOK(); 
+    this->GetDlgItem(IDOK)->EnableWindow(FALSE);
+	//OnOK();
 }
 
 void CArpSpoofDlg::OnBnClickedCancel()
 {
 	KillTimer(0);
-	OnCancel();
+	this->GetDlgItem(IDOK)->EnableWindow(TRUE);
+	//OnCancel();
 }
 
 int CArpSpoofDlg::InitInterfaceList()
@@ -324,16 +330,6 @@ void CArpSpoofDlg::OnBnClickedButtonHost()
 		return;
 	} // 结束 if(NO_ERROR != nRet)
 
-
-
-	//SendArpRequest(szHostIp);
-	//Sleep(200);
-	//nRet = GetMac(T2A((LPTSTR)(LPCTSTR)szHostIp), hostMac);
-	//if(nRet)
-	//{
-	//	return;
-	//}// 结束 (200)
-
 	szHostMac = GetMacString(hostMac);
 	UpdateData(FALSE);
 }
@@ -384,4 +380,33 @@ void CArpSpoofDlg::OnCbnSelchangeCmbInterfaceList()
 	GetSelfMac((char*)(LPCTSTR)szInterfaceName, mac);
 	szLocalMac = GetMacString(mac);
 	UpdateData(FALSE);
+}
+
+DWORD WINAPI cap_main(LPVOID lpParameter);
+
+//单独起一个线程进行捕获文件，并隐藏对话框
+void CArpSpoofDlg::OnBnClickedButton1()
+{
+	CString szInterfaceName;
+	int nIndex = 0;
+	COMBOBOXEXITEM Item;
+	UpdateData();
+	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
+	Item.mask = CBEIF_TEXT;
+	nIndex = m_cmbInterfaceList.GetCurSel();
+
+	m_cmbInterfaceList.GetLBText(nIndex, szInterfaceName);
+	
+	m_p.devName = szInterfaceName;
+	m_p.filter = "ip host " + szHostIp;
+	m_p.fileName = m_szFileName;
+	CreateThread(NULL, NULL, cap_main, &m_p, NULL, NULL);
+
+	OnBnClickedOk();
+	this->ShowWindow(SW_HIDE);
+}
+
+void CArpSpoofDlg::OnBnClickedButton2()
+{
+	OnOK();
 }

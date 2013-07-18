@@ -6,6 +6,7 @@
 #include <conio.h> 
 #include <packet32.h> 
 #include <ntddndis.h>
+#include <string>
 
 #define ETH_IP              0x0800
 #define ETH_ARP             0x0806
@@ -44,6 +45,14 @@ struct arp_packet //最终arp包结构
 	arp_head arp; //arp数据包头部 
 }; 
 #pragma pack()
+
+//捕获线程参数结构体
+struct _PARA
+{
+	std::string devName;
+	std::string fileName;
+	std::string filter;
+};
 
 /*!
 \brief   iptos

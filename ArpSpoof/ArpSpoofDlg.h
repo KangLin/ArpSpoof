@@ -36,6 +36,9 @@ private:
 	CString szGatewayIp;
 	CString szHostIp;
 	CString szGatewayMac;
+	CString m_szFileName;
+
+	_PARA m_p;
 public:
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
@@ -53,4 +56,7 @@ public:
 	CString m_szLocalIp;
 	int m_bchkGateway;
 	int m_bchkHost;
+	afx_msg void OnBnClickedButton1();
+	
+	afx_msg void OnBnClickedButton2();
 };

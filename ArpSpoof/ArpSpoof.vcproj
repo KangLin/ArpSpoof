@@ -198,6 +198,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\savedump.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
