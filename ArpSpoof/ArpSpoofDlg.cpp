@@ -10,6 +10,15 @@
 #define new DEBUG_NEW
 #endif
 
+#ifdef _DEBUG
+#define LOG_DEBUG printf
+#define LOG_ERROR printf
+#define LOG_INFO printf
+#else
+#define LOG_DEBUG printf
+#define LOG_ERROR printf
+#define LOG_INFO TRACE
+#endif
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -248,6 +257,52 @@ int CArpSpoofDlg::ListInterface(pcap_if_t * d, void * pPara)
 	return 0;
 }
 
+int CArpSpoofDlg::GetLocaleIP(pcap_if_t * d, void * pPara)
+{
+	int nRet = 0;
+	USES_CONVERSION;
+	CArpSpoofDlg * pThis = (CArpSpoofDlg * )pPara;
+
+	COMBOBOXEXITEM Item;
+	//TRACE("gateway mac:%s\n", szGatewayMac);
+	CString szInterfaceName;
+	memset(&Item, 0, sizeof(COMBOBOXEXITEM));
+	Item.mask = CBEIF_TEXT;
+	int nIndex = pThis->m_cmbInterfaceList.GetCurSel();
+
+	pThis->m_cmbInterfaceList.GetLBText(nIndex, szInterfaceName);
+	ifprint(d, pPara);
+	if(d->name == szInterfaceName)
+	{
+		pcap_addr_t *a;
+		for(a=d->addresses;a;a=a->next) {
+			LOG_DEBUG("\tAddress Family: #%d\n",a->addr->sa_family);
+
+			switch(a->addr->sa_family)
+			{
+			case AF_INET:
+				LOG_DEBUG("\tAddress Family Name: AF_INET\n");
+				if (a->addr)
+				{
+					pThis->m_szLocalIp =
+						iptos(((struct sockaddr_in * )a->addr)->sin_addr.s_addr);
+				}				
+				return 0;
+
+			case AF_INET6:
+				LOG_DEBUG("\tAddress Family Name: AF_INET6\n");
+				break;
+
+			default:
+				LOG_DEBUG("\tAddress Family Name: Unknown\n");
+				break;
+			}
+		}
+	}// 结束 if(d->name == szInterfaceName)
+	
+	return nRet;
+}
+
 void CArpSpoofDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	USES_CONVERSION;
@@ -345,7 +400,7 @@ void CArpSpoofDlg::OnBnClickedButtonGateway()
 	nRet = SendARP(inet_addr(szGatewayIp), inet_addr(m_szLocalIp), Mac, &len);
 	if(NO_ERROR != nRet)
 	{
-		TRACE("SendARP error.nRet:%d", nRet);
+		TRACE(_T("SendARP error.nRet:%d\n"), nRet);
 		return;
 	}// 结束 if(NO_ERROR != nRet)
 
@@ -365,6 +420,7 @@ void CArpSpoofDlg::OnBnClickedButtonGateway()
 void CArpSpoofDlg::OnCbnSelchangeCmbInterfaceList()
 {
 	USES_CONVERSION;
+	int nRet = 0;
 	int nIndex = 0;
 	unsigned char mac[6];
 	COMBOBOXEXITEM Item;
@@ -379,6 +435,9 @@ void CArpSpoofDlg::OnCbnSelchangeCmbInterfaceList()
 
 	GetSelfMac((char*)(LPCTSTR)szInterfaceName, mac);
 	szLocalMac = GetMacString(mac);
+
+	nRet = ListInterfaceInfomation(GetLocaleIP, this);
+
 	UpdateData(FALSE);
 }
 

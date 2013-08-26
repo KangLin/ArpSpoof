@@ -19,7 +19,7 @@
 #else
 	#define LOG_DEBUG printf
 	#define LOG_ERROR printf
-	#define LOG_INFO printf
+	#define LOG_INFO TRACE
 #endif
 
 int gDevIndex = 0;
@@ -67,49 +67,49 @@ int ifprint(pcap_if_t *d, void *para)
 	char ip6str[128];
 
 	/* Name */
-	printf("%d:%s\n", gDevIndex, d->name);
+	LOG_INFO("%d:%s\n", gDevIndex, d->name);
 
 	/* Description */
 	if (d->description)
-		printf("\tDescription: %s\n",d->description);
+		LOG_INFO("\tDescription: %s\n",d->description);
 
 	/* Loopback Address*/
-	printf("\tLoopback: %s\n",(d->flags & PCAP_IF_LOOPBACK)?"yes":"no");
+	LOG_INFO("\tLoopback: %s\n",(d->flags & PCAP_IF_LOOPBACK)?"yes":"no");
 
 	/* IP addresses */
 	for(a=d->addresses;a;a=a->next) {
-		printf("\tAddress Family: #%d\n",a->addr->sa_family);
+		LOG_INFO("\tAddress Family: #%d\n",a->addr->sa_family);
 
 		switch(a->addr->sa_family)
 		{
 		case AF_INET:
-			printf("\tAddress Family Name: AF_INET\n");
+			LOG_INFO("\tAddress Family Name: AF_INET\n");
 			if (a->addr)
-				printf("\tAddress: %s\n",
+				LOG_INFO("\tAddress: %s\n",
 						iptos(((struct sockaddr_in *)a->addr)->sin_addr.s_addr));
 			if (a->netmask)
-				printf("\tNetmask: %s\n",
+				LOG_INFO("\tNetmask: %s\n",
 						iptos(((struct sockaddr_in *)a->netmask)->sin_addr.s_addr));
 			if (a->broadaddr)
-				printf("\tBroadcast Address: %s\n",
+				LOG_INFO("\tBroadcast Address: %s\n",
 						iptos(((struct sockaddr_in *)a->broadaddr)->sin_addr.s_addr));
 			if (a->dstaddr)
-				printf("\tDestination Address: %s\n",
+				LOG_INFO("\tDestination Address: %s\n",
 						iptos(((struct sockaddr_in *)a->dstaddr)->sin_addr.s_addr));
 			break;
 
 		case AF_INET6:
-			printf("\tAddress Family Name: AF_INET6\n");
+			LOG_INFO("\tAddress Family Name: AF_INET6\n");
 			if (a->addr)
-				printf("\tAddress: %s\n", ip6tos(a->addr, ip6str, sizeof(ip6str)));
+				LOG_INFO("\tAddress: %s\n", ip6tos(a->addr, ip6str, sizeof(ip6str)));
 			break;
 
 		default:
-			printf("\tAddress Family Name: Unknown\n");
+			LOG_INFO("\tAddress Family Name: Unknown\n");
 			break;
 		}
 	}
-	printf("\n");
+	LOG_INFO("\n");
 	return 0;
 }
 
