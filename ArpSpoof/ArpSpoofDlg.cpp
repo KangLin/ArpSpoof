@@ -213,7 +213,7 @@ int SetValue_D(struct HKEY__ * ReRootKey, TCHAR * ReSubKey, TCHAR * ReValueName,
 void CArpSpoofDlg::OnBnClickedOk()
 {
 	LONG lRet = 0;
-	HKEY hkey;
+	//HKEY hkey;
 	DWORD value = 1;
 	//写完注册表后要重启机器才能生效。进行路由转发
 	/*lRet = SetValue_D(HKEY_LOCAL_MACHINE,

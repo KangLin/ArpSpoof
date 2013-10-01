@@ -1,0 +1,1885 @@
+BODY {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+H1 {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+H2 {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+H3 {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+H4 {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+H5 {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+H6 {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+HR {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+P {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+BLOCKQUOTE {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+DL {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+DT {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+DD {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+UL {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+OL {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+LI {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+PRE {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+FORM {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+FIELDSET {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+LEGEND {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+BUTTON {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+INPUT {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+TEXTAREA {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+TABLE {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+TH {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+TR {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+TD {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+IMG {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+DIV {
+	PADDING-BOTTOM: 0pt; BORDER-RIGHT-WIDTH: 0px; MARGIN: 0pt; PADDING-LEFT: 0pt; PADDING-RIGHT: 0pt; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-SIZE: 100%; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0pt
+}
+BODY {
+	LINE-HEIGHT: 22px; FONT-FAMILY: "Microsoft YaHei","SimSun","Arial Narrow"; COLOR: #555555; FONT-SIZE: 12px
+}
+BUTTON {
+	LINE-HEIGHT: 22px; FONT-FAMILY: "Microsoft YaHei","SimSun","Arial Narrow"; COLOR: #555555; FONT-SIZE: 12px
+}
+INPUT {
+	LINE-HEIGHT: 22px; FONT-FAMILY: "Microsoft YaHei","SimSun","Arial Narrow"; COLOR: #555555; FONT-SIZE: 12px
+}
+SELECT {
+	LINE-HEIGHT: 22px; FONT-FAMILY: "Microsoft YaHei","SimSun","Arial Narrow"; COLOR: #555555; FONT-SIZE: 12px
+}
+TEXTAREA {
+	LINE-HEIGHT: 22px; FONT-FAMILY: "Microsoft YaHei","SimSun","Arial Narrow"; COLOR: #555555; FONT-SIZE: 12px
+}
+UL {
+	LIST-STYLE: none none outside
+}
+OL {
+	LIST-STYLE: none none outside
+}
+BUTTON {
+	VERTICAL-ALIGN: middle
+}
+INPUT {
+	VERTICAL-ALIGN: middle
+}
+SELECT {
+	VERTICAL-ALIGN: middle
+}
+TEXTAREA {
+	VERTICAL-ALIGN: middle
+}
+IMG {
+	VERTICAL-ALIGN: middle
+}
+section {
+	DISPLAY: block
+}
+article {
+	DISPLAY: block
+}
+aside {
+	DISPLAY: block
+}
+header {
+	DISPLAY: block
+}
+footer {
+	DISPLAY: block
+}
+nav {
+	DISPLAY: block
+}
+dialog {
+	DISPLAY: block
+}
+figure {
+	DISPLAY: block
+}
+figure {
+	MARGIN: 0pt
+}
+.clearfix:after {
+	DISPLAY: block; HEIGHT: 0pt; VISIBILITY: hidden; CLEAR: both; CONTENT: "."
+}
+.clearfix {
+	DISPLAY: inline-block
+}
+.clearfix {
+	DISPLAY: block
+}
+.fl {
+	FLOAT: left
+}
+.fr {
+	FLOAT: right
+}
+header {
+	MARGIN: 0px auto 20px; WIDTH: 1000px
+}
+section {
+	MARGIN: 0px auto 20px; WIDTH: 1000px
+}
+footer {
+	MARGIN: 0px auto 20px; WIDTH: 1000px
+}
+#top header {
+	MARGIN-BOTTOM: 0px
+}
+section {
+	MARGIN-BOTTOM: 0px
+}
+.col-sub {
+	WIDTH: 300px; FLOAT: left; MARGIN-RIGHT: 20px
+}
+.col-main {
+	WIDTH: 620px; FLOAT: left
+}
+.d2 .col-main {
+	WIDTH: 680px
+}
+.col-main .fl {
+	WIDTH: 330px
+}
+.col-main .fr {
+	WIDTH: 330px
+}
+A {
+	TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #333333
+}
+A:visited {
+	COLOR: #555555
+}
+A:hover {
+	COLOR: #d3000f; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #d3000f; TEXT-DECORATION: underline
+}
+A:focus {
+	COLOR: #d3000f; TEXT-DECORATION: underline
+}
+.bon {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+.bob {
+	BORDER-BOTTOM-WIDTH: 1px
+}
+.bot {
+	BORDER-TOP-WIDTH: 1px
+}
+.lob {
+	BACKGROUND: url(http://image.chinabyte.com/w/pic/310/dots0.gif) repeat-x 0px bottom
+}
+.lot {
+	BACKGROUND: url(http://image.chinabyte.com/w/pic/310/dots0.gif) repeat-x 0px 1px
+}
+.lon {
+	BACKGROUND: no-repeat
+}
+.hd2 {
+	BORDER-BOTTOM: #dddddd 1px solid; LINE-HEIGHT: 42px; HEIGHT: 42px; BORDER-TOP: #555555 3px solid
+}
+.hd2 H3 {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 18px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: inline; FONT-FAMILY: "Microsoft YaHei","SimHei"; FLOAT: left; COLOR: #d00010; FONT-SIZE: 24px; FONT-WEIGHT: normal; PADDING-TOP: 15px
+}
+.hd2 H3 A {
+	COLOR: #d00010
+}
+.box {
+	MARGIN-BOTTOM: 20px
+}
+.hd {
+	BORDER-BOTTOM: #dddddd 1px solid; MARGIN-BOTTOM: 15px; HEIGHT: 43px; OVERFLOW: hidden
+}
+.hd H3 {
+	PADDING-BOTTOM: 8px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: inline; FONT-FAMILY: "Microsoft YaHei","SimHei"; FLOAT: left; COLOR: #333333; FONT-SIZE: 18px; FONT-WEIGHT: normal; PADDING-TOP: 15px
+}
+.hidden {
+	DISPLAY: none
+}
+.act {
+	FLOAT: right
+}
+.act A {
+	MARGIN: 0px 5px
+}
+.tab-holder {
+	MARGIN-TOP: 17px; FLOAT: right; HEIGHT: 14px; MARGIN-RIGHT: 5px
+}
+.tab-holder LI {
+	TEXT-ALIGN: center; LINE-HEIGHT: 14px; FLOAT: left; HEIGHT: 14px; FONT-SIZE: 12px; CURSOR: pointer
+}
+.tab-holder A {
+	MARGIN: 0px 4px; DISPLAY: inline-block
+}
+.tab-holder .selected A {
+	BORDER-BOTTOM: red 1px solid
+}
+.tab-holder .selected A:hover {
+	COLOR: #d3000f; TEXT-DECORATION: none
+}
+.tab-holder .selected A:active {
+	COLOR: #d3000f; TEXT-DECORATION: none
+}
+.tab-holder .selected A:focus {
+	COLOR: #d3000f; TEXT-DECORATION: none
+}
+.d2 .col-sub .box {
+	BACKGROUND: #f8f8f8
+}
+.d2 .col-sub .hd {
+	BORDER-BOTTOM: #ffffff 1px solid; PADDING-LEFT: 10px; MARGIN-BOTTOM: 0px; BACKGROUND: #efefef
+}
+.d2 .col-sub .bd {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BORDER-TOP: #dddddd 1px solid; PADDING-TOP: 15px
+}
+#m-cio {
+	MARGIN-BOTTOM: 5px
+}
+#m-do {
+	MARGIN-BOTTOM: 5px
+}
+#m-pc {
+	MARGIN-BOTTOM: 5px
+}
+#m-aio {
+	MARGIN-BOTTOM: 5px
+}
+#m-qyjcss {
+	MARGIN-BOTTOM: 5px
+}
+#d2 .col-main .box {
+	MARGIN-BOTTOM: 5px
+}
+#hd2-news {
+	MARGIN-BOTTOM: 15px
+}
+#hd2-shang {
+	MARGIN-BOTTOM: 15px
+}
+.list LI {
+	LINE-HEIGHT: 25px; PADDING-LEFT: 9px; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/list.png) no-repeat 0px 11px; HEIGHT: 25px; OVERFLOW: hidden
+}
+.list0 LI {
+	LINE-HEIGHT: 25px; HEIGHT: 25px; OVERFLOW: hidden
+}
+.list LI SPAN {
+	COLOR: #333333; MARGIN-RIGHT: 4px
+}
+.list0 LI SPAN {
+	COLOR: #333333; MARGIN-RIGHT: 4px
+}
+.list LI SPAN A {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; COLOR: #d00010; PADDING-TOP: 0px
+}
+.list0 LI SPAN A {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; COLOR: #d00010; PADDING-TOP: 0px
+}
+.list1 LI {
+	LINE-HEIGHT: 21px
+}
+.list1 LI H5 {
+	TEXT-ALIGN: left
+}
+#ask .list1 LI {
+	BORDER-BOTTOM: #dddddd 1px solid; MARGIN-BOTTOM: 15px
+}
+#ask .list1 LI.last {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; MARGIN-BOTTOM: 0px; BORDER-RIGHT-STYLE: none
+}
+#ask .list1 LI H5 {
+	PADDING-LEFT: 25px; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/ask.gif) no-repeat; HEIGHT: 25px
+}
+.list3 LI {
+	LINE-HEIGHT: 22px; DISPLAY: block; HEIGHT: 80px; OVERFLOW: hidden
+}
+.list3 LI IMG {
+	FLOAT: left
+}
+.list3 LI A {
+	FLOAT: left
+}
+.list3 LI H5 {
+	HEIGHT: 22px; FONT-SIZE: 12px; OVERFLOW: hidden
+}
+.list3 LI SPAN {
+	LINE-HEIGHT: 18px; COLOR: #6f6f6f
+}
+.list3 LI DIV {
+	FLOAT: right
+}
+.list3 DIV A {
+	FLOAT: none
+}
+.list5 LI {
+	ZOOM: 1; MARGIN-BOTTOM: 15px; HEIGHT: 100px
+}
+.list5 LI H5 {
+	LINE-HEIGHT: 13px; FONT-FAMILY: "Microsoft YaHei","SimHei"; HEIGHT: 26px; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: 800
+}
+.list5 LI .pic {
+	FLOAT: left; MARGIN-RIGHT: 15px
+}
+.txtbox {
+	WORD-WRAP: break-word; WORD-BREAK: break-all
+}
+.txtbox SPAN A {
+	COLOR: #d00010
+}
+.col-main .txtbox {
+	MARGIN-RIGHT: 20px
+}
+#m-xw .list5 H5 A {
+	COLOR: #d3000f; FONT-SIZE: 14px
+}
+#m-shang .list5 H5 A {
+	COLOR: #d3000f; FONT-SIZE: 14px
+}
+#m-yjs .list5 LI {
+	MARGIN-BOTTOM: 25px
+}
+.list6 LI {
+	TEXT-ALIGN: left; WIDTH: 110px; FLOAT: left
+}
+.d2 .col-sub .list6 LI {
+	TEXT-ALIGN: center; WIDTH: 100px
+}
+.list6 LI H5 {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 1.2em; MARGIN: 10px 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; HEIGHT: 28px; OVERFLOW: hidden; FONT-WEIGHT: normal; PADDING-TOP: 0px
+}
+.list6 LI IMG {
+	WIDTH: 90px; HEIGHT: 60px
+}
+.col-main .list6 LI H5 {
+	PADDING-LEFT: 0px
+}
+#top {
+	TEXT-ALIGN: center; WIDTH: 100%; MARGIN-BOTTOM: 20px; BACKGROUND: #000000
+}
+#top-bar {
+	LINE-HEIGHT: 30px; FONT-FAMILY: "SimSun","Arial Narrow"; MARGIN-BOTTOM: 0px; BACKGROUND: #222222; HEIGHT: 30px; COLOR: #bababa
+}
+#top-bar A {
+	COLOR: #bababa
+}
+.left-wrap {
+	TEXT-ALIGN: right; WIDTH: 500px; FLOAT: left
+}
+.left-wrap A {
+	MARGIN: 0px 8px
+}
+.right-wrap {
+	TEXT-ALIGN: right; FLOAT: right
+}
+#ghome {
+	PADDING-LEFT: 20px; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/home.gif) no-repeat 0px 0px
+}
+#page-header {
+	MARGIN-BOTTOM: 0px; BACKGROUND: #7e000a; HEIGHT: 80px
+}
+.logo {
+	LINE-HEIGHT: 40px; MARGIN: 20px 15px 20px 0px; PADDING-LEFT: 120px; FONT-FAMILY: "Microsoft YaHei","SimHei"; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/logo-channel.png) no-repeat; FLOAT: left; HEIGHT: 40px; COLOR: #ffffff; FONT-SIZE: 27px; VERTICAL-ALIGN: middle; FONT-WEIGHT: 800
+}
+#share {
+	LINE-HEIGHT: 30px; MARGIN: 25px 0px 0px 130px; FLOAT: left; HEIGHT: 30px; COLOR: #ffffff
+}
+#share A {
+	DISPLAY: inline-block; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/share.png) no-repeat; FLOAT: left; HEIGHT: 30px; MARGIN-RIGHT: 20px
+}
+#share SPAN {
+	DISPLAY: inline-block; FLOAT: left; MARGIN-RIGHT: 20px
+}
+#share .s-sina {
+	WIDTH: 38px; BACKGROUND-POSITION: 0px 0px
+}
+#share .s-qqzon {
+	WIDTH: 31px; BACKGROUND-POSITION: 0px -30px
+}
+#share .s-qqwb {
+	WIDTH: 33px; BACKGROUND-POSITION: 0px -60px
+}
+#share .s-rss {
+	WIDTH: 28px; BACKGROUND-POSITION: 0px -90px
+}
+#share .s-mail {
+	WIDTH: 30px; BACKGROUND-POSITION: 0px -120px
+}
+#page-header header {
+	POSITION: relative
+}
+#top_search {
+	POSITION: absolute; RIGHT: 0px; TOP: 25px
+}
+#wd {
+	LINE-HEIGHT: 30px; PADDING-LEFT: 6px; WIDTH: 163px; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/search.png) no-repeat left -30px; HEIGHT: 30px; COLOR: #333333; VERTICAL-ALIGN: middle
+}
+.blur#wd {
+	BACKGROUND-POSITION: left top
+}
+#button {
+	BORDER-BOTTOM-STYLE: none; TEXT-INDENT: 999em; BORDER-LEFT-STYLE: none; WIDTH: 49px; BORDER-TOP-STYLE: none; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/search.png) no-repeat right top; HEIGHT: 30px; MARGIN-LEFT: -8px; BORDER-RIGHT-STYLE: none; VERTICAL-ALIGN: middle; CURSOR: pointer
+}
+.blur#button {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-POSITION: right -30px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+#button:hover {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-POSITION: right -30px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+
+@media Unknown    
+{
+#button {
+	MARGIN-TOP: 1px
+}
+    }
+#page-nav {
+	MARGIN-BOTTOM: 0px; BACKGROUND: #b30b18; HEIGHT: 35px
+}
+.channel-tj {
+	LINE-HEIGHT: 35px; PADDING-LEFT: 40px; FLOAT: left; COLOR: #ffffff
+}
+.channel-tj A {
+	MARGIN: 0px 6px; COLOR: #ffffff
+}
+.channel-wrap LI {
+	BORDER-LEFT: #bd2b36 1px solid; PADDING-BOTTOM: 6px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; FONT-FAMILY: "Microsoft YaHei","SimHei"; FLOAT: left; COLOR: #ffffff; FONT-SIZE: 14px; FONT-WEIGHT: bold; BORDER-RIGHT: #9c0a15 1px solid; PADDING-TOP: 6px
+}
+.channel-wrap LI A {
+	LINE-HEIGHT: 14px; COLOR: #ffffff
+}
+.channel-wrap LI A:visited {
+	LINE-HEIGHT: 14px; COLOR: #ffffff
+}
+#b-news #page-header {
+	BACKGROUND: #842028
+}
+#b-it #page-header {
+	BACKGROUND: #842028
+}
+#b-view #page-header {
+	BACKGROUND: #842028
+}
+#b-net #page-header {
+	BACKGROUND: #842028
+}
+#b-hea #page-header {
+	BACKGROUND: #842028
+}
+#b-news #page-nav {
+	BACKGROUND: #b03841
+}
+#b-it #page-nav {
+	BACKGROUND: #b03841
+}
+#b-view #page-nav {
+	BACKGROUND: #b03841
+}
+#b-net #page-nav {
+	BACKGROUND: #b03841
+}
+#b-hea #page-nav {
+	BACKGROUND: #b03841
+}
+#b-news .channel-wrap LI {
+	BORDER-LEFT: #ba525b 1px solid; BORDER-RIGHT: #973238 1px solid
+}
+#b-it .channel-wrap LI {
+	BORDER-LEFT: #ba525b 1px solid; BORDER-RIGHT: #973238 1px solid
+}
+#b-view .channel-wrap LI {
+	BORDER-LEFT: #ba525b 1px solid; BORDER-RIGHT: #973238 1px solid
+}
+#b-net .channel-wrap LI {
+	BORDER-LEFT: #ba525b 1px solid; BORDER-RIGHT: #973238 1px solid
+}
+#b-hea .channel-wrap LI {
+	BORDER-LEFT: #ba525b 1px solid; BORDER-RIGHT: #973238 1px solid
+}
+#b-news .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-news.gif)
+}
+#b-it .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-news.gif)
+}
+#b-view .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-news.gif)
+}
+#b-net .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-news.gif)
+}
+#b-hea .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-news.gif)
+}
+#b-news #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-news.gif)
+}
+#b-it #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-news.gif)
+}
+#b-view #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-news.gif)
+}
+#b-net #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-news.gif)
+}
+#b-hea #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-news.gif)
+}
+#b-cloud #page-header {
+	BACKGROUND: #3059a8
+}
+#b-cloud-news #page-header {
+	BACKGROUND: #3059a8
+}
+#b-cloud-tech #page-header {
+	BACKGROUND: #3059a8
+}
+#b-cloud-vertical #page-header {
+	BACKGROUND: #3059a8
+}
+#b-icloud #page-header {
+	BACKGROUND: #3059a8
+}
+#b-cloud #page-nav {
+	BACKGROUND: #4479d7
+}
+#b-cloud-news #page-nav {
+	BACKGROUND: #4479d7
+}
+#b-cloud-tech #page-nav {
+	BACKGROUND: #4479d7
+}
+#b-cloud-vertical #page-nav {
+	BACKGROUND: #4479d7
+}
+#b-icloud #page-nav {
+	BACKGROUND: #4479d7
+}
+#b-cloud .channel-wrap LI {
+	BORDER-LEFT: #5d8add 1px solid; BORDER-RIGHT: #3c69bc 1px solid
+}
+#b-cloud-news .channel-wrap LI {
+	BORDER-LEFT: #5d8add 1px solid; BORDER-RIGHT: #3c69bc 1px solid
+}
+#b-cloud-tech .channel-wrap LI {
+	BORDER-LEFT: #5d8add 1px solid; BORDER-RIGHT: #3c69bc 1px solid
+}
+#b-cloud-vertical .channel-wrap LI {
+	BORDER-LEFT: #5d8add 1px solid; BORDER-RIGHT: #3c69bc 1px solid
+}
+#b-icloud .channel-wrap LI {
+	BORDER-LEFT: #5d8add 1px solid; BORDER-RIGHT: #3c69bc 1px solid
+}
+#b-cloud .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-cloud.gif)
+}
+#b-cloud-news .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-cloud.gif)
+}
+#b-cloud-tech .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-cloud.gif)
+}
+#b-cloud-vertical .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-cloud.gif)
+}
+#b-icloud .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-cloud.gif)
+}
+#b-cloud #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-cloud.gif)
+}
+#b-cloud-news #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-cloud.gif)
+}
+#b-cloud-tech #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-cloud.gif)
+}
+#b-cloud-vertical #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-cloud.gif)
+}
+#b-icloud #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-cloud.gif)
+}
+#b-www #page-header {
+	BACKGROUND: #192b39
+}
+#b-e #page-header {
+	BACKGROUND: #192b39
+}
+#b-storage #page-header {
+	BACKGROUND: #192b39
+}
+#b-soft #page-header {
+	BACKGROUND: #192b39
+}
+#b-soft-os #page-header {
+	BACKGROUND: #192b39
+}
+#b-soft-database #page-header {
+	BACKGROUND: #192b39
+}
+#b-server #page-header {
+	BACKGROUND: #192b39
+}
+#b-network #page-header {
+	BACKGROUND: #192b39
+}
+#b-sec #page-header {
+	BACKGROUND: #192b39
+}
+#b-www #page-nav {
+	BACKGROUND: #26445c
+}
+#b-e #page-nav {
+	BACKGROUND: #26445c
+}
+#b-storage #page-nav {
+	BACKGROUND: #26445c
+}
+#b-soft #page-nav {
+	BACKGROUND: #26445c
+}
+#b-soft-os #page-nav {
+	BACKGROUND: #26445c
+}
+#b-soft-database #page-nav {
+	BACKGROUND: #26445c
+}
+#b-server #page-nav {
+	BACKGROUND: #26445c
+}
+#b-network #page-nav {
+	BACKGROUND: #26445c
+}
+#b-sec #page-nav {
+	BACKGROUND: #26445c
+}
+#b-www .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-e .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-storage .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-soft .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-soft-os .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-soft-database .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-server .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-network .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-sec .channel-wrap LI {
+	BORDER-LEFT: #425d70 1px solid; BORDER-RIGHT: #213c4f 1px solid
+}
+#b-www .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-e .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-storage .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-soft .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-soft-os .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-soft-database .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-server .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-network .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-sec .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-e.gif)
+}
+#b-www #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-e #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-storage #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-soft #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-soft-os #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-soft-database #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-server #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-network #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-sec #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-e.gif)
+}
+#b-info #page-header {
+	BACKGROUND: #48703b
+}
+#b-do #page-header {
+	BACKGROUND: #48703b
+}
+#b-smb #page-header {
+	BACKGROUND: #48703b
+}
+#b-area #page-header {
+	BACKGROUND: #48703b
+}
+#b-cio #page-header {
+	BACKGROUND: #48703b
+}
+#b-solution-new #page-header {
+	BACKGROUND: #48703b
+}
+#b-cio-club #page-header {
+	BACKGROUND: #48703b
+}
+#b-info #page-nav {
+	BACKGROUND: #538d40
+}
+#b-do #page-nav {
+	BACKGROUND: #538d40
+}
+#b-smb #page-nav {
+	BACKGROUND: #538d40
+}
+#b-area #page-nav {
+	BACKGROUND: #538d40
+}
+#b-cio #page-nav {
+	BACKGROUND: #538d40
+}
+#b-solution-new #page-nav {
+	BACKGROUND: #538d40
+}
+#b-cio-club #page-nav {
+	BACKGROUND: #538d40
+}
+#b-info .channel-wrap LI {
+	BORDER-LEFT: #689d57 1px solid; BORDER-RIGHT: #487b38 1px solid
+}
+#b-do .channel-wrap LI {
+	BORDER-LEFT: #689d57 1px solid; BORDER-RIGHT: #487b38 1px solid
+}
+#b-smb .channel-wrap LI {
+	BORDER-LEFT: #689d57 1px solid; BORDER-RIGHT: #487b38 1px solid
+}
+#b-area .channel-wrap LI {
+	BORDER-LEFT: #689d57 1px solid; BORDER-RIGHT: #487b38 1px solid
+}
+#b-cio .channel-wrap LI {
+	BORDER-LEFT: #689d57 1px solid; BORDER-RIGHT: #487b38 1px solid
+}
+#b-solution-new .channel-wrap LI {
+	BORDER-LEFT: #689d57 1px solid; BORDER-RIGHT: #487b38 1px solid
+}
+#b-cio-club .channel-wrap LI {
+	BORDER-LEFT: #689d57 1px solid; BORDER-RIGHT: #487b38 1px solid
+}
+#b-info .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-info.gif)
+}
+#b-do .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-info.gif)
+}
+#b-smb .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-info.gif)
+}
+#b-area .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-info.gif)
+}
+#b-cio .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-info.gif)
+}
+#b-solution-new .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-info.gif)
+}
+#b-cio-club .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-info.gif)
+}
+#b-info #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-info.gif)
+}
+#b-do #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-info.gif)
+}
+#b-smb #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-info.gif)
+}
+#b-area #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-info.gif)
+}
+#b-cio #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-info.gif)
+}
+#b-solution-new #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-info.gif)
+}
+#b-cio-club #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-info.gif)
+}
+#b-nbpc #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-nbpc-biz #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-nbpc-aio #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-nbpc-pc #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-oa #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-oa-printer #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-oa-projector #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-nbpc-diy #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-nbpc-workstation #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-shang-tablet #page-header {
+	BACKGROUND: #ae4f21
+}
+#b-nbpc #page-nav {
+	BACKGROUND: #d66227
+}
+#b-nbpc-biz #page-nav {
+	BACKGROUND: #d66227
+}
+#b-nbpc-aio #page-nav {
+	BACKGROUND: #d66227
+}
+#b-nbpc-pc #page-nav {
+	BACKGROUND: #d66227
+}
+#b-oa #page-nav {
+	BACKGROUND: #d66227
+}
+#b-oa-printer #page-nav {
+	BACKGROUND: #d66227
+}
+#b-oa-projector #page-nav {
+	BACKGROUND: #d66227
+}
+#b-nbpc-diy #page-nav {
+	BACKGROUND: #d66227
+}
+#b-nbpc-workstation #page-nav {
+	BACKGROUND: #d66227
+}
+#b-shang-tablet #page-nav {
+	BACKGROUND: #d66227
+}
+#b-nbpc .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-nbpc-biz .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-nbpc-aio .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-nbpc-pc .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-oa .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-oa-printer .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-oa-projector .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-nbpc-diy .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-nbpc-workstation .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-shang-tablet .channel-wrap LI {
+	BORDER-LEFT: #da7642 1px solid; BORDER-RIGHT: #ba5423 1px solid
+}
+#b-nbpc .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-nbpc-biz .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-nbpc-aio .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-nbpc-pc .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-oa .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-oa-printer .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-oa-projector .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-nbpc-diy .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-nbpc-workstation .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-shang-tablet .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-nbpc.gif)
+}
+#b-nbpc #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-nbpc-biz #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-nbpc-aio #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-nbpc-pc #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-oa #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-oa-printer #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-oa-projector #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-nbpc-diy #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-nbpc-workstation #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-shang-tablet #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-nbpc.gif)
+}
+#b-telecom #page-header {
+	BACKGROUND: #259be1
+}
+#b-shang-mobile #page-header {
+	BACKGROUND: #259be1
+}
+#b-mi #page-header {
+	BACKGROUND: #259be1
+}
+#b-telecom #page-nav {
+	BACKGROUND: #4fbbfc
+}
+#b-shang-mobile #page-nav {
+	BACKGROUND: #4fbbfc
+}
+#b-mi #page-nav {
+	BACKGROUND: #4fbbfc
+}
+#b-telecom .channel-wrap LI {
+	BORDER-LEFT: #68c3fa 1px solid; BORDER-RIGHT: #45a2db 1px solid
+}
+#b-shang-mobile .channel-wrap LI {
+	BORDER-LEFT: #68c3fa 1px solid; BORDER-RIGHT: #45a2db 1px solid
+}
+#b-mi .channel-wrap LI {
+	BORDER-LEFT: #68c3fa 1px solid; BORDER-RIGHT: #45a2db 1px solid
+}
+#b-telecom .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-mi.gif)
+}
+#b-shang-mobile .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-mi.gif)
+}
+#b-mi .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-mi.gif)
+}
+#b-telecom #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-mi.gif)
+}
+#b-shang-mobile #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-mi.gif)
+}
+#b-mi #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-mi.gif)
+}
+#b-shang #page-header {
+	BACKGROUND: #5c2672
+}
+#b-shang-nb #page-header {
+	BACKGROUND: #5c2672
+}
+#b-shang-dt #page-header {
+	BACKGROUND: #5c2672
+}
+#b-shang-aio #page-header {
+	BACKGROUND: #5c2672
+}
+#b-shang-shangpin #page-header {
+	BACKGROUND: #5c2672
+}
+#b-ultrabook #page-header {
+	BACKGROUND: #5c2672
+}
+#b-shang #page-nav {
+	BACKGROUND: #763f9a
+}
+#b-shang-nb #page-nav {
+	BACKGROUND: #763f9a
+}
+#b-shang-dt #page-nav {
+	BACKGROUND: #763f9a
+}
+#b-shang-aio #page-nav {
+	BACKGROUND: #763f9a
+}
+#b-shang-shangpin #page-nav {
+	BACKGROUND: #763f9a
+}
+#b-ultrabook #page-nav {
+	BACKGROUND: #763f9a
+}
+#b-shang .channel-wrap LI {
+	BORDER-LEFT: #8758a6 1px solid; BORDER-RIGHT: #673685 1px solid
+}
+#b-shang-nb .channel-wrap LI {
+	BORDER-LEFT: #8758a6 1px solid; BORDER-RIGHT: #673685 1px solid
+}
+#b-shang-dt .channel-wrap LI {
+	BORDER-LEFT: #8758a6 1px solid; BORDER-RIGHT: #673685 1px solid
+}
+#b-shang-aio .channel-wrap LI {
+	BORDER-LEFT: #8758a6 1px solid; BORDER-RIGHT: #673685 1px solid
+}
+#b-shang-shangpin .channel-wrap LI {
+	BORDER-LEFT: #8758a6 1px solid; BORDER-RIGHT: #673685 1px solid
+}
+#b-ultrabook .channel-wrap LI {
+	BORDER-LEFT: #8758a6 1px solid; BORDER-RIGHT: #673685 1px solid
+}
+#b-shang .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-shang.gif)
+}
+#b-shang-nb .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-shang.gif)
+}
+#b-shang-dt .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-shang.gif)
+}
+#b-shang-aio .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-shang.gif)
+}
+#b-shang-shangpin .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-shang.gif)
+}
+#b-ultrabook .logo {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/logo-channel-shang.gif)
+}
+#b-shang #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-shang.gif)
+}
+#b-shang-nb #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-shang.gif)
+}
+#b-shang-dt #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-shang.gif)
+}
+#b-shang-aio #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-shang.gif)
+}
+#b-shang-shangpin #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-shang.gif)
+}
+#b-ultrabook #share A {
+	_background-image: url(http://www.chinabyte.com/w/pic/730/share-shang.gif)
+}
+#b-news #n-news {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-it #n-it {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-view #n-view {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-net #n-net {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-hea #n-hea {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-cloud #n-cloud {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-cloud-news #n-cloud-news {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-cloud-tech #n-cloud-tech {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-cloud-vertical #n-cloud-vertical {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-icloud #n-icloud {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-www #n-www {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-e #n-e {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-storage #n-storage {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-soft #n-soft {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-soft-os #n-soft-os {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-soft-database #n-soft-database {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-server #n-server {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-network #n-network {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-sec #n-sec {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-info #n-info {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-do #n-do {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-smb #n-smb {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-area #n-area {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-cio #n-cio {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-solution-new #n-solution-new {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-cio-club #n-cio-club {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-nbpc #n-nbpc {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-nbpc-biz #n-nbpc-biz {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-nbpc-aio #n-nbpc-aio {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-nbpc-pc #n-nbpc-pc {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-oa #n-oa {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-oa-printer #n-oa-printer {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-oa-projector #n-oa-projector {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-nbpc-diy #n-nbpc-diy {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-nbpc-workstation #n-nbpc-workstation {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-shang-tablet #n-shang-tablet {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-telecom #n-telecom {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-shang-mobile #n-shang-mobile {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-mi #n-mi {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-shang #n-shang {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-shang-nb #n-shang-nb {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-shang-dt #n-shang-dt {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-shang-aio #n-shang-aio {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-shang-shangpin #n-shang-shangpin {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-ultrabook #n-ultrabook {
+	MARGIN-TOP: -3px; BORDER-LEFT-STYLE: none; BACKGROUND: #ffffff; HEIGHT: 23px; BORDER-RIGHT-STYLE: none; BORDER-TOP: #b30b18 3px solid
+}
+#b-news #n-news A {
+	COLOR: #333333
+}
+#b-it #n-it A {
+	COLOR: #333333
+}
+#b-view #n-view A {
+	COLOR: #333333
+}
+#b-net #n-net A {
+	COLOR: #333333
+}
+#b-hea #n-hea A {
+	COLOR: #333333
+}
+#b-cloud #n-cloud A {
+	COLOR: #333333
+}
+#b-cloud-news #n-cloud-news A {
+	COLOR: #333333
+}
+#b-cloud-tech #n-cloud-tech A {
+	COLOR: #333333
+}
+#b-cloud-vertical #n-cloud-vertical A {
+	COLOR: #333333
+}
+#b-icloud #n-icloud A {
+	COLOR: #333333
+}
+#b-www #n-www A {
+	COLOR: #333333
+}
+#b-e #n-e A {
+	COLOR: #333333
+}
+#b-storage #n-storage A {
+	COLOR: #333333
+}
+#b-soft #n-soft A {
+	COLOR: #333333
+}
+#b-soft-os #n-soft-os A {
+	COLOR: #333333
+}
+#b-soft-database #n-soft-database A {
+	COLOR: #333333
+}
+#b-server #n-server A {
+	COLOR: #333333
+}
+#b-network #n-network A {
+	COLOR: #333333
+}
+#b-sec #n-sec A {
+	COLOR: #333333
+}
+#b-info #n-info A {
+	COLOR: #333333
+}
+#b-do #n-do A {
+	COLOR: #333333
+}
+#b-smb #n-smb A {
+	COLOR: #333333
+}
+#b-area #n-area A {
+	COLOR: #333333
+}
+#b-cio #n-cio A {
+	COLOR: #333333
+}
+#b-solution-new #n-solution-new A {
+	COLOR: #333333
+}
+#b-cio-club #n-cio-club A {
+	COLOR: #333333
+}
+#b-nbpc #n-nbpc A {
+	COLOR: #333333
+}
+#b-nbpc-biz #n-nbpc-biz A {
+	COLOR: #333333
+}
+#b-nbpc-aio #n-nbpc-aio A {
+	COLOR: #333333
+}
+#b-nbpc-pc #n-nbpc-pc A {
+	COLOR: #333333
+}
+#b-oa #n-oa A {
+	COLOR: #333333
+}
+#b-oa-printer #n-oa-printer A {
+	COLOR: #333333
+}
+#b-oa-projector #n-oa-projector A {
+	COLOR: #333333
+}
+#b-nbpc-diy #n-nbpc-diy A {
+	COLOR: #333333
+}
+#b-nbpc-workstation #n-nbpc-workstation A {
+	COLOR: #333333
+}
+#b-shang-tablet #n-shang-tablet A {
+	COLOR: #333333
+}
+#b-telecom #n-telecom A {
+	COLOR: #333333
+}
+#b-shang-mobile #n-shang-mobile A {
+	COLOR: #333333
+}
+#b-mi #n-mi A {
+	COLOR: #333333
+}
+#b-shang #n-shang A {
+	COLOR: #333333
+}
+#b-shang-nb #n-shang-nb A {
+	COLOR: #333333
+}
+#b-shang-dt #n-shang-dt A {
+	COLOR: #333333
+}
+#b-shang-aio #n-shang-aio A {
+	COLOR: #333333
+}
+#b-shang-shangpin #n-shang-shangpin A {
+	COLOR: #333333
+}
+#b-ultrabook #n-ultrabook A {
+	COLOR: #333333
+}
+.col-main {
+	WIDTH: 688px; FLOAT: left; BORDER-RIGHT: #dddddd 1px solid
+}
+#a1 .col-main {
+	BORDER-RIGHT-STYLE: none
+}
+.col-extra {
+	WIDTH: 300px; FLOAT: right; PADDING-TOP: 10px
+}
+#a1 .col-extra {
+	PADDING-TOP: 0px
+}
+.col-extra .hd .act {
+	LINE-HEIGHT: 38px; MARGIN: 0px 5px; DISPLAY: block; HEIGHT: 38px
+}
+.col-extra .hd {
+	BORDER-BOTTOM-COLOR: #ffffff; BORDER-TOP-COLOR: #ffffff; MARGIN: 0px; PADDING-LEFT: 10px; BACKGROUND: #efefef; HEIGHT: 38px; BORDER-RIGHT-COLOR: #ffffff; BORDER-LEFT-COLOR: #ffffff
+}
+.col-extra .hd H3 {
+	PADDING-TOP: 7px
+}
+.col-extra .bd {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: #f8f8f8; BORDER-TOP: #dddddd 1px solid; PADDING-TOP: 15px
+}
+.col-extra .bd .list {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 0px
+}
+.col-extra .bd .list6 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 0px
+}
+#a1 {
+	MARGIN-TOP: 10px
+}
+#navbar {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 0px solid; LINE-HEIGHT: 38px; MARGIN: 0px auto; WIDTH: 1000px; HEIGHT: 38px; BORDER-TOP: #dddddd 1px solid; BORDER-RIGHT: #dddddd 0px solid
+}
+UL.artiList {
+	WIDTH: 680px; FLOAT: left; MARGIN-RIGHT: 10px; _display: inline
+}
+UL.artiList LI {
+	PADDING-BOTTOM: 18px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: url(http://image.chinabyte.com/w/pic/dots_bbb.gif) repeat-x 0px bottom; PADDING-TOP: 18px
+}
+UL.artiList LI .list-t A {
+	LINE-HEIGHT: 23px; FONT-SIZE: 18px
+}
+UL.artiList LI .i {
+	LINE-HEIGHT: 40px; HEIGHT: 40px; COLOR: #888888
+}
+UL.artiList LI .i A {
+	COLOR: #888888
+}
+UL.artiList LI P {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 21px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; MARGIN-RIGHT: 60px; PADDING-TOP: 0px
+}
+UL.artiList LI .text {
+	WIDTH: 560px; FLOAT: left
+}
+UL.artiList LI .text P {
+	MARGIN-RIGHT: 10px
+}
+UL.artiList LI .pic {
+	TEXT-ALIGN: center; WIDTH: 120px; FLOAT: right; OVERFLOW: hidden; PADDING-TOP: 40px
+}
+#main {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; BORDER-RIGHT: #dddddd 1px solid
+}
+#main .hd {
+	BORDER-BOTTOM-STYLE: none; MARGIN: 0px 20px; HEIGHT: auto
+}
+#artibody {
+	MARGIN: 0px 20px
+}
+H1 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 110px; HEIGHT: 110px; FONT-SIZE: 26px; FONT-WEIGHT: normal
+}
+.titBar {
+	BORDER-BOTTOM: #dddddd 1px dashed; BORDER-LEFT: #dddddd 0px dashed; LINE-HEIGHT: 38px; HEIGHT: 38px; BORDER-TOP: #dddddd 1px dashed; BORDER-RIGHT: #dddddd 0px dashed
+}
+.titBar .info {
+	FLOAT: left
+}
+.titBar .info SPAN {
+	MARGIN-RIGHT: 10px
+}
+#fontsize {
+	FLOAT: right
+}
+#fontsize DIV {
+	MARGIN: 8px 13px 0px 0px; WIDTH: 23px; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/font.gif) no-repeat; FLOAT: left; HEIGHT: 18px; CURSOR: pointer
+}
+#fontsize #small {
+	BACKGROUND-POSITION: -23px 0px
+}
+.keywords {
+	MARGIN: 15px 0px; COLOR: #888888
+}
+.keywords A {
+	COLOR: #d30010
+}
+#main-article P {
+	LINE-HEIGHT: 25px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif", "microsoft yahei"; MARGIN-BOTTOM: 12px; FONT-SIZE: 14px
+}
+#main-article P A {
+	BORDER-BOTTOM: #d30010 1px dotted
+}
+#main-article P A:hover {
+	TEXT-DECORATION: none
+}
+#main-article P A:active {
+	TEXT-DECORATION: none
+}
+#main-article P A:focus {
+	TEXT-DECORATION: none
+}
+#main-article UL A {
+	PADDING-LEFT: 85px; COLOR: #d30010; FONT-SIZE: 14px
+}
+#main-article UL {
+	MARGIN-BOTTOM: 25px
+}
+#main-article .copyright {
+	LINE-HEIGHT: 1.8em; COLOR: #868686; FONT-SIZE: 12px
+}
+#main-article .copyright B {
+	COLOR: #d30010
+}
+.Feedback {
+	LINE-HEIGHT: 55px; MARGIN: 20px 20px 0px; HEIGHT: 55px; BORDER-TOP: #dddddd 1px dashed
+}
+.Feedback A {
+	COLOR: #d30010
+}
+.tool-article {
+	PADDING-BOTTOM: 12px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; BACKGROUND: #fbfbfb; HEIGHT: 40px; BORDER-TOP: #dddddd 1px solid; PADDING-TOP: 12px
+}
+#artibody .box2 UL {
+	MARGIN: 10px; WIDTH: 566px; BACKGROUND: url(/TLimages2009/yesky/images/content/line1.gif) repeat-y center 50%
+}
+#artibody .box2 LI {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 21px; PADDING-LEFT: 10px; WIDTH: 263px; TEXT-OVERFLOW: ellipsis; PADDING-RIGHT: 10px; WHITE-SPACE: nowrap; FLOAT: left; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+#artibody .box2 LI SPAN {
+	COLOR: #cc0000
+}
+.pageList {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 0px; WIDTH: 680px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif, Verdana; BACKGROUND: url(http://image.chinabyte.com/w/pic/dots_bbb.gif) repeat-x 0px bottom; PADDING-TOP: 20px
+}
+#artibody .pageList {
+	TEXT-ALIGN: center; WIDTH: auto; BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.pageList A:hover STRONG {
+	COLOR: #fff
+}
+.pageList A {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 3px 2px 0px 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; DISPLAY: inline-block; BACKGROUND: #fff; HEIGHT: 22px; FONT-SIZE: 14px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 0px
+}
+.pageList A:hover {
+	BORDER-BOTTOM-COLOR: #b30b18; BORDER-TOP-COLOR: #b30b18; BACKGROUND: #b30b18; COLOR: #fff; BORDER-RIGHT-COLOR: #b30b18; BORDER-LEFT-COLOR: #b30b18; TEXT-DECORATION: none
+}
+.pageList SPAN {
+	BORDER-BOTTOM: #b30b18 1px solid; BORDER-LEFT: #b30b18 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 3px 2px 0px 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; DISPLAY: inline-block; BACKGROUND: #b30b18; HEIGHT: 22px; COLOR: #fff; FONT-SIZE: 14px; BORDER-TOP: #b30b18 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #b30b18 1px solid; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+#m-wb {
+	MARGIN-TOP: 30px
+}
+#m-wb .hd {
+	BORDER-BOTTOM-STYLE: none; MARGIN: 0px; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+#m-wb .act {
+	MARGIN-TOP: 8px
+}
+#m-wb .bd {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; BORDER-RIGHT: #dddddd 1px solid
+}
+.mod .box {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 332px; BORDER-TOP-STYLE: none; FLOAT: left; BORDER-RIGHT-STYLE: none
+}
+.mod .mr {
+	MARGIN-RIGHT: 20px
+}
+#m-wb .hd {
+	MARGIN-BOTTOM: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-TOP: #555 3px solid
+}
+.mcomment {
+	POSITION: relative
+}
+.comment2 {
+	POSITION: absolute; TEXT-ALIGN: center; LINE-HEIGHT: 32px; WIDTH: 175px; HEIGHT: 32px; FONT-SIZE: 14px; RIGHT: 0px; TOP: 8px
+}
+.comment2 A {
+	COLOR: #d30010
+}
+#comNum2 {
+	FONT-STYLE: normal
+}
+#commentList LI {
+	BORDER-BOTTOM: #d1d1d1 1px dotted; POSITION: relative; MIN-HEIGHT: 76px
+}
+#commentList DD .date {
+	MARGIN: 10px 0px; DISPLAY: block; COLOR: #878787
+}
+#commentList DD .plnr {
+	PADDING-BOTTOM: 6px; LINE-HEIGHT: 1.6em; PADDING-LEFT: 0px; WIDTH: 518px; PADDING-RIGHT: 6px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+#commentList DT {
+	POSITION: absolute; TEXT-ALIGN: center; MIN-HEIGHT: 76px; WIDTH: 96px; FONT: bold italic 32px/74px "Arial"; COLOR: #cccccc; RIGHT: 0px; TOP: -2px
+}
+#commentList LI.pls {
+	BORDER-BOTTOM-STYLE: none; TEXT-ALIGN: center; MIN-HEIGHT: 50px; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BACKGROUND: #f5f5f5 no-repeat; BORDER-RIGHT-STYLE: none; PADDING-TOP: 5px
+}
+#postForm {
+	PADDING-BOTTOM: 10px; COLOR: #999; PADDING-TOP: 10px
+}
+#content {
+	BORDER-BOTTOM: #ededed 1px solid; BORDER-LEFT: #ededed 1px solid; WIDTH: 680px; MARGIN-BOTTOM: 10px; HEIGHT: 115px; BORDER-TOP: #ededed 1px solid; BORDER-RIGHT: #ededed 1px solid
+}
+.bbedit-smileybar {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 5px; PADDING-LEFT: 0px; WIDTH: 630px; PADDING-RIGHT: 0px; CURSOR: pointer; PADDING-TOP: 5px
+}
+#wordNum {
+	FLOAT: left; MARGIN-LEFT: 15px
+}
+.fTtile {
+	LINE-HEIGHT: 32px; FLOAT: left; HEIGHT: 32px
+}
+.titleRow2 {
+	LINE-HEIGHT: 32px; FLOAT: left; HEIGHT: 32px
+}
+.fd {
+	FLOAT: right; MARGIN-RIGHT: 15px
+}
+#nickName {
+	BORDER-BOTTOM: #ededed 1px solid; BORDER-LEFT: #ededed 1px solid; LINE-HEIGHT: 23px; PADDING-LEFT: 5px; WIDTH: 70px; HEIGHT: 23px; COLOR: #999; BORDER-TOP: #ededed 1px solid; BORDER-RIGHT: #ededed 1px solid
+}
+.submit {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 86px; BORDER-TOP-STYLE: none; BACKGROUND: #b30b18; HEIGHT: 26px; COLOR: #ffffff; MARGIN-LEFT: 10px; BORDER-RIGHT-STYLE: none; FONT-SIZE: 14px; CURSOR: pointer
+}
+#brand .list4 LI {
+	WIDTH: 165px; PADDING-RIGHT: 5px; FLOAT: left
+}
+#brand .list4 LI H5 {
+	FONT-WEIGHT: normal
+}
+#m-blog .bd {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 5px
+}
+.list .type {
+	FONT-STYLE: normal; COLOR: #919191; MARGIN-RIGHT: 4px
+}
+.list .type A {
+	COLOR: #919191
+}
+#m-blog .list {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#m-btjd .bd {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 5px
+}
+#m-btjd LI {
+	MARGIN: 5px; WHITE-SPACE: nowrap; FLOAT: left
+}
+.jd1 {
+	DISPLAY: inline-block; FONT: 12px/1.6em "宋体"; HEIGHT: 24px
+}
+.jd2 {
+	DISPLAY: inline-block; FONT: bold 16px/1.6em "黑体"; HEIGHT: 24px
+}
+.jd3 {
+	DISPLAY: inline-block; FONT: bold 18px/1.6em "宋体"; HEIGHT: 24px
+}
+.jd4 {
+	DISPLAY: inline-block; FONT: 24px/1.6em "宋体"; HEIGHT: 24px
+}
+.none {
+	DISPLAY: none
+}
+.mailbox .ezine .textbox {
+	MARGIN: 10px auto; WIDTH: 280px
+}
+.mailbox .ezine .textbox .text {
+	BORDER-BOTTOM: #dee3e8 1px solid; BORDER-LEFT: #dee3e8 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 2px; WIDTH: 230px; FONT-FAMILY: Arial, 宋体, Helvetica, sans-serif; BACKGROUND: #fff; FLOAT: left; HEIGHT: 20px; COLOR: #999; BORDER-TOP: #dee3e8 1px solid; BORDER-RIGHT: #dee3e8 1px solid
+}
+.mailbox .ezine .textbox BUTTON {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 37px; BORDER-TOP-STYLE: none; BACKGROUND: #b30b18; HEIGHT: 22px; COLOR: #ffffff; BORDER-RIGHT-STYLE: none; CURSOR: pointer
+}
+.mailbox .dylist {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 16px; PADDING-TOP: 5px
+}
+.mailbox .dylist DT {
+	LINE-HEIGHT: 26px; WIDTH: 290px; FLOAT: left
+}
+.mailbox .dylist DD {
+	POSITION: relative; PADDING-LEFT: 10px; WIDTH: 270px; FLOAT: left
+}
+.mailbox .dylist .layout {
+	Z-INDEX: 99; BORDER-BOTTOM: #535353 1px solid; POSITION: absolute; BORDER-LEFT: #535353 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; WIDTH: 248px; PADDING-RIGHT: 10px; DISPLAY: inline; BACKGROUND: #fff; FLOAT: left; BORDER-TOP: #535353 4px solid; BORDER-RIGHT: #535353 1px solid; PADDING-TOP: 0px; TOP: -3px; LEFT: 10px
+}
+.mailbox .dylist .layout .t {
+	BORDER-BOTTOM: #535353 1px solid; LINE-HEIGHT: 34px; PADDING-LEFT: 4px; WIDTH: 243px; BACKGROUND: no-repeat; FLOAT: left; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.mailbox .dylist .layout .d {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 10px; LINE-HEIGHT: 21px; PADDING-LEFT: 0px; WIDTH: 248px; PADDING-RIGHT: 0px; FLOAT: left; PADDING-TOP: 10px
+}
+.mailbox .dylist .layout .d A {
+	FONT-SIZE: 14px; TEXT-DECORATION: underline
+}
+.mailbox .dylist LABEL {
+	PADDING-LEFT: 5px; WIDTH: 140px; CURSOR: pointer
+}
+.mailbox .dylist INPUT {
+	MARGIN: 3px 0px; FLOAT: left
+}
+#m-dy .bd {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+#m-video .list6 LI {
+	WIDTH: 140px
+}
+#m-zt .list6 LI {
+	WIDTH: 140px
+}
+#m-bbs .list6 LI {
+	WIDTH: 140px
+}
+#m-video .list6 LI IMG {
+	WIDTH: 120px; HEIGHT: 75px
+}
+#m-zt .list6 LI IMG {
+	WIDTH: 120px; HEIGHT: 75px
+}
+#m-bbs .list6 LI IMG {
+	WIDTH: 120px; HEIGHT: 75px
+}
+#m-video .list6 LI .pic {
+	POSITION: relative; HEIGHT: 75px
+}
+#m-zt .list6 LI .pic {
+	POSITION: relative; HEIGHT: 75px
+}
+#m-bbs .list6 LI .pic {
+	POSITION: relative; HEIGHT: 75px
+}
+#m-djph .bd {
+	BACKGROUND: url(http://www.chinabyte.com/w/pic/730/ph.png) #f8f8f8 no-repeat 10px 19px
+}
+#m-djph .list LI {
+	LINE-HEIGHT: 30px; PADDING-LEFT: 25px; BACKGROUND: no-repeat; HEIGHT: 30px
+}
+.footer {
+	TEXT-ALIGN: center
+}
+.footer-nav {
+	BORDER-BOTTOM: #dddddd 1px solid; POSITION: relative; LINE-HEIGHT: 40px; MARGIN-BOTTOM: 20px; HEIGHT: 40px; BORDER-TOP: #dddddd 1px solid
+}
+.footernew {
+	TEXT-ALIGN: center; MARGIN: 0px auto; WIDTH: 550px
+}
+.footernew A {
+	MARGIN-TOP: 10px
+}
+.footernew P {
+	BORDER-BOTTOM: #d2d2d2 1px solid; BORDER-LEFT: #d2d2d2 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; MARGIN: 6px; PADDING-LEFT: 0px; WIDTH: 120px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 50px; FONT-SIZE: 12px; BORDER-TOP: #d2d2d2 1px solid; BORDER-RIGHT: #d2d2d2 1px solid; PADDING-TOP: 0px
+}
+.footernew .fl {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 3px
+}
+.footernew .fr {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 3px; WIDTH: 72px; PADDING-RIGHT: 3px; PADDING-TOP: 5px
+}
+#adv-button {
+	PADDING-LEFT: 140px; WIDTH: 860px; MARGIN-BOTTOM: 20px; BACKGROUND: url(http://www.chinabyte.com/w/pic/730/logo-button.jpg) no-repeat left top
+}
+.adv-button {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 0px; BORDER-TOP: #dddddd 1px solid; BORDER-RIGHT: #dddddd 1px solid; PADDING-TOP: 4px
+}
+.adv-button A {
+	MARGIN-RIGHT: 4px
+}
+.adv {
+	MARGIN: 0px auto 20px; WIDTH: 1000px
+}
+.adv_CB_inner_wzydbcolumn {
+	MARGIN: 0px auto 20px; WIDTH: 1000px
+}
+.adv_CB_inner_dhxcolumn1 {
+	MARGIN: 0px auto 20px; WIDTH: 1000px
+}
+.adv_CB_inner_column1 {
+	MARGIN: 0px auto; WIDTH: 1000px
+}
+.adv_CB_ineer_pip1 {
+	FLOAT: left; MARGIN-RIGHT: 15px
+}
+.adv2 {
+	MARGIN: 0px auto 20px; WIDTH: 680px
+}
+#adv_tjlj {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #dddddd 1px; BORDER-RIGHT: #dddddd 1px solid; PADDING-TOP: 5px
+}
+#adv_tjlj A {
+	COLOR: #d00010; MARGIN-RIGHT: 15px
+}
+#zjcb {
+	WIDTH: 680px; OVERFLOW: hidden
+}
+#zjcb .hd {
+	MARGIN-BOTTOM: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-TOP: #555 3px solid
+}
+#zjcb .rwlist {
+	WIDTH: 720px
+}
+#zjcb .rwlist LI {
+	WIDTH: 157px; PADDING-RIGHT: 16px; FLOAT: left
+}
+#zjcb .rwlist LI IMG {
+	BORDER-BOTTOM: #efefef 1px solid; BORDER-LEFT: #efefef 1px solid; BORDER-TOP: #efefef 1px solid; BORDER-RIGHT: #efefef 1px solid
+}
+#zjcb .rwlist LI P {
+	TEXT-ALIGN: center; PADDING-TOP: 10px
+}
+#zjcb .rwlist LI B {
+	FONT-SIZE: 18px; FONT-WEIGHT: normal
+}
+.login {
+	TEXT-ALIGN: left; WIDTH: 250px; FLOAT: left
+}
+.login A {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 0px
+}
+.login B {
+	COLOR: #fff
+}
+.login B A {
+	COLOR: #fff
+}

@@ -18,12 +18,12 @@
 
 //字节对齐必须是1 
 #pragma pack (1) 
-struct ethernet_head 
+typedef struct ethernet_head 
 { 
 	unsigned char dest_mac[6]; //目标主机MAC地址 
 	unsigned char source_mac[6]; //源端MAC地址 
 	unsigned short eh_type; //以太网类型 
-}; 
+} ETHERNET_HEAD; 
 
 struct arp_head 
 { 
@@ -190,4 +190,5 @@ int GetMac( /*[in]*/char * pszIp, /*[out]*/unsigned char * Mac);
 */
 const char* GetMacString(unsigned char * pMac);
 
+int HexStringToCharArrary(char * pHexString, unsigned char* pCharArrary);
 #endif 

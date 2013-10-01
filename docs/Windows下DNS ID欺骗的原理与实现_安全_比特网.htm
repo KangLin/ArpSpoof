@@ -1,0 +1,937 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0042)http://sec.chinabyte.com/118/9145118.shtml -->
+<HTML><HEAD><META content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>Windows下DNS ID欺骗的原理与实现_安全_比特网</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META name=description 
+content="　　域名系统(DNS)是一种用于TCP/IP应用程序的分布式数据库，它提供主机名字和IP地址之间的转换信息。通常，网络用户通过UDP协议和DNS服务器进行通信，而服务器在特定的53端口监听，并返回用户所需的相关信息。 Windows下DNS ID欺骗的原理与实现">
+<META name=keywords content=DNS,技巧>
+<META content=format=xhtml;url=http://m.chinabyte.com/sec/118/9145118_m.shtml 
+http-equiv=mobile-agent><!-- baidu_tc page: 
+{"page_type":"CONTENT","default_block_action":"DELETE"} --><!--[if IE]>
+<SCRIPT src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/html5.js"></SCRIPT>
+<![endif]--><LINK rel=stylesheet type=text/css 
+href="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/v5.css">
+<SCRIPT type=text/javascript 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/jquery-1.4.2.min.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src=""></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/v5.js"></SCRIPT>
+
+<SCRIPT type=text/javascript> 
+jQuery(function($){
+	$('#big').click(function(){zoomDoc(1);});
+	$('#small').click(function(){zoomDoc(-1);});
+	//搜索 
+	$('#wd').focus( 
+		function () { 
+			$(this).removeClass("blur"); 
+			$("#button").addClass("blur"); 
+		} 
+		); 
+		$('#wd').blur( 
+		function () { 
+			if($(this).val()==''){ 
+			$(this).addClass("blur"); 
+		}else{ 
+			$(this).removeClass("blur"); 
+		} 
+			$("#button").removeClass("blur"); 
+		} 
+	); 
+
+//滑动块 
+		boxs('#m-bbs',0,"mousemove"); 
+		boxs('#m-djph',0,"mousemove"); 
+})
+</SCRIPT>
+
+<SCRIPT type=text/javascript> 
+var opiniontitle=document.title;
+var opinionurl=document.location.href;
+var articleID = 9145118;
+var channelId = 9725;
+var articleTitle = 'Windows下DNS ID欺骗的原理与实现'; //本文标题
+var articleURL = "http://sec.chinabyte.com/118/9145118.shtml";//本文链接
+var referId=articleID;
+
+var aid =9145118;
+var pageNo = 1;
+
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16464"></HEAD>
+<BODY id=b-sec><!-- baidu_tc block_begin: {"type":"CONTENT", "action":"SHOW"} -->
+<DIV id=top>
+<DIV id=top-bar><HEADER class=clearfix><!-- baidu_tc block_begin: {"type":"PAGE_NAV", "action":"SHOW"} -->
+<DIV id=login class=login></DIV>
+<DIV class=left-wrap><A id=ghome href="http://www.chinabyte.com/" 
+target=_self>比特首页</A>|<A href="http://news.chinabyte.com/" 
+target=_self>新闻中心</A>|<A href="http://e.chinabyte.com/" target=_self>企业计算</A>|<A 
+href="http://cloud.chinabyte.com/" target=_self>云计算</A>|<A 
+href="http://info.chinabyte.com/" target=_self>信息化</A>|<A 
+href="http://mi.chinabyte.com/" target=_self>移动互联</A>|<A 
+href="http://nbpc.chinabyte.com/" target=_self>整机外设</A> </DIV>
+<DIV class=right-wrap><A href="http://blog.chinabyte.com/">博客</A> <A 
+href="http://bbs.chinabyte.com/">论坛</A> <A 
+href="http://product.chinabyte.com/">产品库</A></DIV><!-- baidu_tc block_end --></HEADER></DIV>
+<DIV id=page-header><HEADER class=clearfix>
+<DIV class=logo>安 全</DIV>
+<DIV id=share><SPAN>我们也在这里：</SPAN> <A 
+style="COLOR: #000000; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none" 
+class=s-sina title=比特网新浪微博 href="http://weibo.com/cbnews/" rel=nofollow 
+target=_self></A><A class=s-qqzon title=QQ空间 
+href="http://user.qzone.qq.com/1517281698"></A><A class=s-qqwb title=比特网腾讯微博 
+href="http://t.qq.com/chinabyte/" rel=nofollow></A><A class=s-rss title=订阅RSS 
+href="http://news.chinabyte.com/index.xml" target=_self></A><A class=s-mail 
+href="javascript:window.open('http://opinion.chinabyte.com/reader/reader.jhtml?sitemapId=1&amp;url='+opinionurl+'&amp;title='+opiniontitle+'');void(0)" 
+target=_self></A></DIV>
+<FORM id=top_search method=get name=search 
+action=http://search.chinabyte.com/searchchianbyte.do autocomplete="off"><INPUT 
+id=wd class=blur name=wd> <INPUT id=button type=submit> </FORM></HEADER></DIV>
+<DIV id=page-nav><HEADER class=clearfix><NAV class=channel-wrap>
+<UL>
+  <LI id=n-e><A href="http://e.chinabyte.com/" target=_self>企业计算</A> 
+  <LI id=n-bigdata><A href="http://bigdata.chinabyte.com/" target=_self>大数据</A> 
+  <LI id=n-storage><A href="http://storage.chinabyte.com/" target=_self>存储</A> 
+  <LI id=n-soft><A href="http://soft.chinabyte.com/" target=_self>软件与服务</A> 
+  <LI id=n-soft-database><A href="http://soft.chinabyte.com/database/" 
+  target=_self>数据库/开发</A> 
+  <LI id=n-server><A href="http://server.chinabyte.com/" target=_self>服务器</A> 
+  <LI id=n-soft-os><A href="http://soft.chinabyte.com/os/" target=_self>操作系统</A> 
+
+  <LI id=n-network><A href="http://network.chinabyte.com/" target=_self>网 络</A> 
+  </LI>
+  <LI id=n-sec><A href="http://sec.chinabyte.com/" target=_self>安 全</A> 
+</LI></UL></NAV>
+<DIV class=channel-tj></DIV></HEADER></DIV></DIV>
+<DIV id=navbar class=clearfix>您的位置： <A href="http://www.chinabyte.com/" 
+target=_self>比特网</A> &gt; <A href="http://sec.chinabyte.com/" 
+target=_self>安全</A> &gt; 正文 </DIV><!-- 首屏 --><SECTION id=a1 
+class=clearfix><ARTICLE class=col-main><!-- ws --><!-- baidu_tc block_begin: {"type":"MYPOS", "action":"SHOW"} --><!-- baidu_tc block_end -->
+<DIV id=main class="box clearfix">
+<DIV class=hd><!-- baidu_tc block_begin: {"type":"TITLE", "action":"SHOW"} -->
+<H1 id=artibodyTitle>Windows下DNS ID欺骗的原理与实现</H1><!-- baidu_tc block_end -->
+<DIV class="titBar clearfix">
+<DIV class=info><SPAN class=date>2009-09-05 18:50</SPAN><SPAN 
+class=where>中国IT实验室</SPAN><SPAN class=auth>佚名</SPAN></DIV>
+<DIV id=fontsize>
+<DIV id=big></DIV>
+<DIV id=small></DIV></DIV></DIV>
+<DIV class=keywords>关键字：DNS 技巧 </DIV></DIV>
+<DIV id=artibody>
+<DIV id=main-article class=BSHARE_POP>
+<DIV class=guanggao></DIV>
+<DIV id=logincontent><!-- baidu_tc block_begin: {"type":"CONTENT", "action":"SHOW"} -->
+<P>　　<A id=k530775430 class=keyword_link 
+href="http://www.chinabyte.com/keyword/域名/" target=_blank>域名</A>系统(DNS)是一种用于<A 
+id=k530840217 class=keyword_link href="http://www.chinabyte.com/keyword/TCP/IP/" 
+target=_blank>TCP/IP</A>应用程序的分布式<A id=k530831516 class=keyword_link 
+href="http://soft.chinabyte.com/database/" 
+target=_blank>数据库</A>，它提供主机名字和IP地址之间的转换信息。通常，网络用户通过UDP协议和<A id=k530833285 
+class=keyword_link href="http://www.chinabyte.com/keyword/DNS服务器/" 
+target=_blank>DNS服务器</A>进行<A id=k530831723 class=keyword_link 
+href="http://telecom.chinabyte.com/" target=_blank>通信</A>，而<A id=k530768927 
+class=keyword_link href="http://server.chinabyte.com/" 
+target=_blank>服务器</A>在特定的53端口监听，并返回用户所需的相关信息。</P>
+<P><STRONG>　　一&gt; DNS协议的相关数据结构</STRONG></P>
+<P>　　DNS数据报：</P>
+<P>　　typedef struct dns</P>
+<P>　　{</P>
+<P>　　unsigned short id;</P>
+<P>　　//标识，通过它客户端可以将DNS的请求与应答相匹配;</P>
+<P>　　unsigned short flags;</P>
+<P>　　//标志：[QR | opcode | AA| TC| RD| RA | zero | rcode ]</P>
+<P>　　unsigned short quests;</P>
+<P>　　//问题数目;</P>
+<P>　　unsigned short answers;</P>
+<P>　　//资源记录数目;</P>
+<P>　　unsigned short author;</P>
+<P>　　//授权资源记录数目;</P>
+<P>　　unsigned short addition;</P>
+<P>　　//额外资源记录数目;</P>
+<P>　　}DNS,*PDNS;</P>
+<P>　　在16位的标志中：QR位判断是查询/响应报文，opcode区别查询类型，AA判断是否为授权回答，TC判断是否可截断，RD判断是否期望递归查询，RA判断是否为可用递归，zero必须为0，rcode为返回码字段。</P>
+<P>　　DNS查询数据报：</P>
+<P>　　typedef struct query</P>
+<P>　　{</P>
+<P>　　unsinged char *name;</P>
+<P>　　//查询的域名,这是一个大小在0到63之间的字符串;</P>
+<P>　　unsigned short type;</P>
+<P>　　//查询类型，大约有20个不同的类型</P>
+<P>　　unsigned short classes;</P>
+<P>　　//查询类,通常是A类既查询IP地址。</P>
+<P>　　}QUERY,*PQUERY;</P>
+<P>　　DNS响应数据报：</P>
+<P>　　typedef struct response</P>
+<P>　　{</P>
+<P>　　unsigned short name;</P>
+<P>　　//查询的域名</P>
+<P>　　unsigned short type;</P>
+<P>　　//查询类型</P>
+<P>　　unsigned short classes;</P>
+<P>　　//类型码</P>
+<P>　　unsigned int ttl;</P>
+<P>　　//生存时间</P>
+<P>　　unsigned short length;</P>
+<P>　　//资源数据长度</P>
+<P>　　unsigned int addr;</P>
+<P>　　//资源数据</P>
+<P>　　}RESPONSE,*PRESPONSE;</P>
+<P><STRONG>　　二&gt; windows下DNS ID欺骗的原理</STRONG></P>
+<P>　　我们可以看到，在DNS数据报头部的id(标识)是用来匹配响应和请求数据报的。现在，让我们来<A id=k531797522 
+class=keyword_link href="http://www.chinabyte.com/keyword/看看/" 
+target=_blank>看看</A>域名解析的整个过程。客户端首先以特定的标识向DNS服务器发送域名查询数据报，在DNS服务器查询之后以相同的ID号给客户端发送域名响应数据报。这时客户端会将收到的DNS响应数据报的ID和自己发送的查询数据报ID相比较，如果匹配则表明接收到的正是自己等待的数据报，如果不匹配则丢弃之。</P>
+<P>　　假如我们能够伪装DNS服务器提前向客户端发送响应数据报，那么客户端的DNS缓存里域名所对应的IP就是我们自定义的IP了，同时客户端也就被带到了我们希望的网站。条件只有一个，那就是我们发送的ID匹配的DSN响应数据报在DNS服务器发送的响应数据报之前到达客户端。下图清楚的展现了DNS 
+ID欺骗的过程：</P>
+<P>　　Client &lt;--response--| . . . . . .. . . . . . . . . . DNS Server</P>
+<P>　　|&lt;--[a.b.c == 112.112.112.112]-- Your Computer</P>
+<P>　　到此，我想大家都知道了DNS ID欺骗的实质了，那么如何才能实现呢?这要分两种情况：</P>
+<P>　　1. 本地主机与DNS服务器，本地主机与客户端主机均不在同一个<A id=k530841916 class=keyword_link 
+href="http://www.chinabyte.com/keyword/局域网/" 
+target=_blank>局域网</A>内,方法有以下几种：向客户端主机随机发送大量DNS响应数据报，命中率很低;向DNS服务器发起拒绝服务攻击，太粗鲁;BIND漏洞，使用范围比较窄。</P>
+<P>　　2. 本地主机至少与DNS服务器或客户端主机中的某一台处在同一个局域网内：我们可以通过<A id=k530840370 
+class=keyword_link href="http://www.chinabyte.com/keyword/ARP/" 
+target=_blank>ARP</A>欺骗来实现可靠而稳定的DNS ID欺骗，下面我们将详细讨论这种情况。</P>
+<P>　　首先我们进行DNS ID欺骗的基础是ARP欺骗，也就是在局域网内同时欺骗<A id=k530831929 class=keyword_link 
+href="http://www.chinabyte.com/keyword/网关/" 
+target=_blank>网关</A>和客户端主机(也可能是欺骗网关和DNS服务器，或欺骗DNS服务器和客户端主机)。我们以客户端的名义向网关发送ARP响应数据报，不过其中将源<A 
+id=k530767119 class=keyword_link href="http://www.chinabyte.com/keyword/Mac/" 
+target=_blank>MAC</A>地址改为我们自己主机的MAC地址;同时以网关的名义向客户端主机发送ARP响应数据报，同样将源MAC地址改为我们自己主机的MAC地址。这样以来，网关看来客户端的MAC地址就是我们主机的MAC地址;客户端也认为网关的MAC地址为我们主机的MAC地址。由于在局域网内数据报的传送是建立在MAC地址之上了，所以网关和客户端之间的数据流通必须先通过本地主机。详细介绍请参见《详谈调用WinPCap驱动写Arp多功能工具》。</P>
+<P>　　在监视网关和客户端主机之间的数据报时，如果发现了客户端发送的DNS查询数据报(目的端口为53)，那么我们可以提前将自己构造的DNS响应数据报发送到客户端。注意，我们必须提取有客户端发送来的DNS查询数据报的ID信息，因为客户端是通过它来进行匹配认证的，这就是一个我们可以利用的DNS漏洞。这样客户端会先收到我们发送的DNS响应数据报并访问我们自定义的网站，虽然客户端也会收到DNS服务器的响应报文，不过已经来不及了，哈哈。</P>
+<P><STRONG>　　三&gt; 核心代码分析</STRONG></P>
+<P>　　主程序创建两个线程，一个线程进行实时的ARP欺骗，另一个线程监听接收到的数据报，若发现有域名服务查询数据报，则立即向客户端发送自定义的DSN响应数据报。测试环境：Windows2000 
++ VC6.0 + 
+Winpcap_3.0_alpha，注册表：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\IPEnableRouter 
+= 0x1。</P>
+<P>　　1.sniff线程：</P>
+<P>　　PacketSetHwFilter(lpadapter,NDIS_PACKET_TYPE_PROMISCUOUS);</P>
+<P>　　//将网卡设置为混杂模式</P>
+<P>　　PacketSetBuff(lpadapter,500*1024);</P>
+<P>　　//设置网络适配器的内核缓存;</P>
+<P>　　PacketSetReadTimeout(lpadapter,1);</P>
+<P>　　//设置等待时间;</P>
+<P>　　PacketReceivePacket(lpadapter,lppacketr,TRUE);</P>
+<P>　　//接收网络数据报;</P>
+<P>　　checksum((USHORT 
+*)temp,sizeof(PSD)+sizeof(UDPHDR)+sizeof(DNS)+ulen+sizeof(QUERY)+sizeof(RESPONSE));</P>
+<P>　　//计算校验和;</P>
+<P>　　PacketInitPacket(lppackets,sendbuf,sizeof(ETHDR)+sizeof(IPHDR)+sizeof(UDPHDR)+sizeof(DNS)+ulen+4+sizeof(RESPONSE));</P>
+<P>　　//初始化一个_PACKET结构，发送DNS响应数据报;</P>
+<P>　　2.arpspoof线程;</P>
+<P>　　PacketInitPacket(lppackets,sendbuf,sizeof(eth)+sizeof(arp));</P>
+<P>　　//初始化ARP响应数据报;</P>
+<P>　　PacketSendPacket(lpadapter,lppackets,TRUE);</P>
+<P>　　//发送ARP欺骗的响应数据报;</P>
+<P>　　3.getmac()函数</P>
+<P>　　GetAdaptersInfo(padapterinfo,&amp;adapterinfosize);</P>
+<P>　　//获取网络适配器的属性;</P>
+<P>　　SendARP(destip,0,pulmac,&amp;ullen);</P>
+<P>　　//发送ARP请求数据报，过去网络主机的MAC地址;</P>
+<P>　　4.main()函数</P>
+<P>　　PacketGetAdapterNames((char *)adaptername,&amp;adapterlength);</P>
+<P>　　//获得本地主机的网络适配器列表和描述;</P>
+<P>　　lpadapter=PacketOpenAdapter(adapterlist[open-1]);</P>
+<P>　　//打开指定的网络适配器;</P>
+<P>　　CreateThread(NULL,0,sniff,NULL,0,&amp;threadrid);</P>
+<P>　　CreateThread(NULL,0,arpspoof,NULL,0,&amp;threadsid);</P>
+<P>　　//创建两个线程;</P>
+<P>　　WaitForMultipleObjects(2,thread,FALSE,INFINITE);</P>
+<P>　　//等待其中的某个线程结束;</P>
+<P><STRONG>　　四&gt; 小结与后记</STRONG></P>
+<P>　　局域网内的网络安全是一个值得大家关注的问题，往往容易发起各种欺骗攻击，这是局域网自身的属性所决定的--网络共享。本文所讲解的DNS 
+ID欺骗是基于ARP欺骗之上的网络攻击，如果在广域网上，则比较麻烦。不过也有一些例外情况：如果IE中使用<A id=k530840086 
+class=keyword_link href="http://www.chinabyte.com/keyword/代理服务器/" 
+target=_blank>代理服务器</A>，欺骗不能进行，因为这时客户端并不会在本地进行域名请求;如果你访问的不是网站主页，而是相关子目录的文件，这样你在自定义的网站上不会找到相关的文件，登陆以失败告终。如果你不幸被欺骗了，先禁用本地连接，然后启用本地连接就可以清除DNS缓存。</P>
+<P><STRONG>　　五&gt; 附之源代码</STRONG></P>
+<P>　　#include</P>
+<P>　　#include</P>
+<P>　　#include</P>
+<P>　　#define ETH_IP 0x0800</P>
+<P>　　#define ETH_ARP 0x0806</P>
+<P>　　#define ARP_REQUEST 0x0001</P>
+<P>　　#define ARP_REPLY 0x0002</P>
+<P>　　#define ARP_HARDWARE 0x0001</P>
+<P>　　#define MAX_NUM_ADAPTER 10</P>
+<P>　　#define NDIS_PACKET_TYPE_PROMISCUOUS 0x0020</P>
+<P>　　#pragma pack(push,1)</P>
+<P>　　typedef struct ethdr</P>
+<P>　　{</P>
+<P>　　unsigned char eh_dst[6];</P>
+<P>　　unsigned char eh_src[6];</P>
+<P>　　unsigned short eh_type;</P>
+<P>　　}ETHDR,*PETHDR;</P>
+<P>　　typedef struct arphdr</P>
+<P>　　{</P>
+<P>　　unsigned short arp_hdr;</P>
+<P>　　unsigned short arp_pro;</P>
+<P>　　unsigned char arp_hln;</P>
+<P>　　unsigned char arp_pln;</P>
+<P>　　unsigned short arp_opt;</P>
+<P>　　unsigned char arp_sha[6];</P>
+<P>　　unsigned long arp_spa;</P>
+<P>　　unsigned char arp_tha[6];</P>
+<P>　　unsigned long arp_tpa;</P>
+<P>　　}ARPHDR,*PARPHDR;</P>
+<P>　　typedef struct iphdr</P>
+<P>　　{</P>
+<P>　　unsigned char h_lenver;</P>
+<P>　　unsigned char tos;</P>
+<P>　　unsigned short total_len;</P>
+<P>　　unsigned short ident;</P>
+<P>　　unsigned short frag_and_flags;</P>
+<P>　　unsigned char ttl;</P>
+<P>　　unsigned char protocol;</P>
+<P>　　unsigned short checksum;</P>
+<P>　　unsigned int sourceip;</P>
+<P>　　unsigned int destip;</P>
+<P>　　}</P><!-- baidu_tc block_end --></DIV></DIV></DIV>
+<DIV class=Feedback>
+<FORM id=feedbackForm name=feedbackForm 
+action=http://opinion.chinabyte.com/reader/reader.jhtml target=_blank><INPUT 
+id=sitemapId name=sitemapId type=hidden> <INPUT id=articleId name=articleId 
+type=hidden> <INPUT id=readerName name=readerName type=hidden> <INPUT id=title 
+name=title type=hidden> <INPUT id=url name=url type=hidden> </FORM>[ 责任编辑：张学敬 ] 
+&nbsp;&nbsp;&nbsp;&nbsp;<A style="CURSOR: hand" 
+onclick=javascript:submitFeedback();>[ 我要挑错 ]</A> </DIV>
+<DIV class=tool-article><!-- JiaThis Button BEGIN -->
+<DIV class=jiathis_style_32x32><A class=jiathis_button_qzone></A><A 
+class=jiathis_button_tsina></A><A class=jiathis_button_tqq></A><A 
+class=jiathis_button_douban></A><A class=jiathis_button_renren></A><A 
+class=jiathis_button_kaixin001></A><A class=jiathis_button_tieba></A><A 
+class=jiathis_button_tsohu></A><A 
+class="jiathis jiathis_txt jtico jtico_jiathis" 
+href="http://www.jiathis.com/share?uid=2857" target=_blank></A><A 
+class=jiathis_counter_style></A></DIV>
+<SCRIPT type=text/javascript>
+var jiathis_config = {
+    data_track_clickback:false,
+    appkey:{
+        "tsina":"1902664639", 
+        "tqq":"5503af39924e46e4a92bd556109dee59", 
+    }
+} 
+</SCRIPT>
+
+<SCRIPT type=text/javascript charset=utf-8 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/jia.js"></SCRIPT>
+<!-- JiaThis Button END --></DIV></DIV>
+<DIV id=zjcb>
+<DIV class=hd>
+<H3>指尖上的比特</H3></DIV>
+<UL class=rwlist>
+  <LI><IMG src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/zj_1.jpg" width=155 
+  height=155>
+  <P><B>比特新闻</B><BR>聚焦热点，把脉趋势，<BR>开阔视野。</P></LI>
+  <LI><IMG src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/zj_2.jpg" width=155 
+  height=155>
+  <P><B>前瞻数码</B><BR>以潮流为导向，带您站在时尚<BR>商务的最前端。</P></LI>
+  <LI><IMG src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/zj_3.jpg" width=155 
+  height=155>
+  <P><B>云瞭望</B><BR>云中掌控，云中无忧。</P></LI>
+  <LI><IMG src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/zj_4.jpg" width=155 
+  height=155>
+  <P><B>CIO俱乐部</B><BR>中国CIO工作、娱乐、生活聚集地</P></LI></UL></DIV>
+<DIV class="mod clearfix">
+<DIV class="box mr">
+<DIV class=hd>
+<H3>相关文章</H3></DIV>
+<DIV class=bd></DIV></DIV>
+<DIV class=clearfix></DIV></DIV>
+<DIV id=wpl>
+<DIV><!-- Duoshuo Comment BEGIN -->
+<DIV class=ds-thread data-channel-key="9725" data-order="desc" data-limit="20" 
+data-form-positon="top" data-category="技巧" data-author-key="张学敬" 
+data-title="Windows下DNS ID欺骗的原理与实现" data-thread-key="9145118"></DIV>
+<SCRIPT type=text/javascript>
+	var duoshuoQuery = {short_name:"chinabyte"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</SCRIPT>
+<!-- Duoshuo Comment END --></DIV></DIV>
+<DIV id=brand class=mod>
+<DIV class=hd>
+<H3><A href="http://www.chinabyte.com/ztzh/">最新专题</A></H3><A class=act 
+href="http://www.chinabyte.com/ztzh/">更多</A></DIV>
+<DIV class=bd>
+<UL class="list4 clearfix">
+  <LI><A href="http://sec.chinabyte.com/ddos2/" target=_blank><IMG 
+  alt=企业采购风云汇——DDoS的攻与防 
+  src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/GNWL62L2ZJ07_L.jpg" width=120 
+  height=75></A> 
+  <H5><A href="http://sec.chinabyte.com/ddos2/" 
+  target=_blank>企业采购风云汇——DDoS的攻与防</A></H5></LI>
+  <LI><A href="http://sec.chinabyte.com/lengjing/" target=_blank><IMG 
+  alt=棱镜”折射谁的安全黑洞？ 
+  src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/N8098O0M4477_L.jpg" width=120 
+  height=75></A> 
+  <H5><A href="http://sec.chinabyte.com/lengjing/" 
+  target=_blank>棱镜”折射谁的安全黑洞？</A></H5></LI>
+  <LI><A href="http://sec.chinabyte.com/wyxy/" target=_blank><IMG 
+  alt=网御“威五”安全网关发布 
+  src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/N8J826Q75682_L.jpg" width=120 
+  height=75></A> 
+  <H5><A href="http://sec.chinabyte.com/wyxy/" 
+  target=_blank>网御“威五”安全网关发布</A></H5>
+  <SCRIPT language=javascript type=text/javascript>sc2();</SCRIPT>
+  </LI></UL></DIV></DIV><!-- we --></ARTICLE><ASIDE class=col-extra>
+<DIV class=box>
+<DIV class=hd>
+<H3><A href="http://app.chinabyte.com/cbnews/">扫一扫，IT资讯全知晓</A></H3></DIV>
+<DIV style="TEXT-ALIGN: center" class=bd><A 
+href="http://app.chinabyte.com/cbnews/"><IMG border=0 alt=扫一扫，IT资讯全知晓 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/erwei2-1.jpg" width=140 
+height=140></A> </DIV></DIV>
+<DIV id=m-zt class=box>
+<DIV class=hd>
+<H3><A href="http://www.chinabyte.com/ztzh/">推荐专题</A></H3><A class=act 
+href="http://www.chinabyte.com/ztzh/">更多</A></DIV>
+<DIV class=bd>
+<UL class="list6 clearfix lob">
+  <LI><A href="http://sec.chinabyte.com/ddos2/" target=_blank><IMG 
+  alt=企业采购风云汇——DDoS的攻与防 
+  src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/GNWL62L2ZJ07_L.jpg" width=120 
+  height=75></A> 
+  <H5><A href="http://sec.chinabyte.com/ddos2/" 
+  target=_blank>企业采购风云汇——DDoS的攻与防</A></H5></LI>
+  <LI><A href="http://sec.chinabyte.com/lengjing/" target=_blank><IMG 
+  alt=棱镜”折射谁的安全黑洞？ 
+  src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/N8098O0M4477_L.jpg" width=120 
+  height=75></A> 
+  <H5><A href="http://sec.chinabyte.com/lengjing/" 
+  target=_blank>棱镜”折射谁的安全黑洞？</A></H5></LI></UL>
+<UL class=list>
+  <LI><A href="http://sec.chinabyte.com/wyxy/">至臻安全：网御“威五”新一代安全网关发布</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/softnextdeloitte/">企业外包邮箱,真的安全吗？</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/dr/">舌尖上的安全：东软再添安全云佳肴</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/checkpoint/">checkpoint下一代防火墙专区</A> 
+</LI>
+  <LI><A href="http://sec.chinabyte.com/bluecoat1/">BlueCoat信息安全专题讲座</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/RSA2012/">2012 RSA信息安全大会(中国)</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/web/">首届WEB应用防护和数据安全高峰论坛</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/ruixing/">发力高端市场 瑞星企业级转型专题</A> 
+</LI></UL></DIV></DIV>
+<DIV id=m-blog class=box>
+<DIV class=hd>
+<H3><A href="http://blog.chinabyte.com/">博客精选</A></H3><A class=act 
+href="http://blog.chinabyte.com/">更多</A></DIV>
+<DIV class=bd>
+<UL class="list lob">
+  <LI><I class=type>[cyanling]</I><A 
+  href="http://blog.chinabyte.com/a/3245799.html">怎样建立一个网站？</A> </LI>
+  <LI><I class=type>[lsjrjiji09]</I><A 
+  href="http://blog.chinabyte.com/a/3245785.html">浅谈冲击试验机缓冲器</A> </LI>
+  <LI><I class=type>[科技虫]</I><A 
+  href="http://blog.chinabyte.com/a/3245776.html">向你开炮！百度和高德导航之争，嘴炮全开</A> </LI>
+  <LI><I class=type>[科技虫]</I><A 
+  href="http://blog.chinabyte.com/a/3245755.html">少点八卦吧！来正经看下巴拉与小米为什么双向选择</A> 
+  </LI>
+  <LI><I class=type>[runagan]</I><A 
+  href="http://blog.chinabyte.com/a/3245741.html">国美布局互联网金融，迟了慢了不说，还有一个核心缺陷</A> 
+  </LI>
+  <LI><I class=type>[大眼儿]</I><A 
+  href="http://blog.chinabyte.com/a/3245692.html">高德，该补公关课了</A> </LI>
+  <LI><I class=type>[电子商务老林]</I><A 
+  href="http://blog.chinabyte.com/a/3245689.html">详细的谈一谈如何做好网站自然和稳定与相关性的外链建设</A> 
+  </LI>
+  <LI><I class=type>[meixinyan]</I><A 
+  href="http://blog.chinabyte.com/a/3245675.html">在线旅游有何“原罪”？</A> </LI></UL>
+<DIV class="bmore clearfix"><A href="http://blog.chinabyte.com/u/70600/">老　杳</A> 
+<A href="http://blog.chinabyte.com/u/70619/">孙永杰</A> <A 
+href="http://blog.chinabyte.com/u/70645/">刘兴亮</A> <A 
+href="http://blog.chinabyte.com/u/74610/">陈永东</A> <A 
+href="http://blog.chinabyte.com/u/73152/">马继华</A> <A 
+href="http://blog.chinabyte.com/u/70654/">毛启盈</A> <A 
+href="http://blog.chinabyte.com/u/73331/">阿　凡</A> <A 
+href="http://blog.chinabyte.com/u/74836/">月　光</A> <A 
+href="http://blog.chinabyte.com/u/74585/">陈志刚</A> <A 
+href="http://blog.chinabyte.com/">更多→</A> </DIV></DIV></DIV>
+<DIV id=m-bbs class=box>
+<DIV class=hd>
+<H3>论坛</H3></DIV>
+<DIV class=bd>
+<UL style="DISPLAY: none" class=list6>
+  <H5><A title=阿里“淘宝村”研究报告：60万网店来自乡村 
+  href="http://bbs.chinabyte.com/thread-935640-1-1.html" 
+  target=_blank>阿里“淘宝村”研究报</A></H5>
+  <H5><A title=百度轻应用：用户会买账吗？ 
+  href="http://bbs.chinabyte.com/thread-935619-1-1.html" 
+  target=_blank>百度轻应用：用户会买</A></H5>
+  <H5><A title="霹雳游侠的现实生活 818各种牛X的车载多媒体系统" 
+  href="http://bbs.chinabyte.com/thread-935198-1-1.html" target=_blank>霹雳游侠的现实生活 
+  </A></H5>
+  <H5><A title="Zynga关闭旗下工作室OMGPOP 官网四款游戏退市" 
+  href="http://bbs.chinabyte.com/thread-817224-1-1.html" 
+  target=_blank>Zynga关闭旗下工</A></H5></UL>
+<UL class=list>
+  <LI><A title=网页脱机工作的问题。 
+  href="http://bbs.chinabyte.com/thread-937565-1-1.html">网页脱机工作的问题。</A> </LI>
+  <LI><A title=.网页窗口大小问题 
+  href="http://bbs.chinabyte.com/thread-937561-1-1.html">.网页窗口大小问题</A> </LI>
+  <LI><A title=用IE浏览器打开网页出问题 
+  href="http://bbs.chinabyte.com/thread-937557-1-1.html">用IE浏览器打开网页出问题</A> </LI>
+  <LI><A title=网页显示有问题！ 
+  href="http://bbs.chinabyte.com/thread-937550-1-1.html">网页显示有问题！</A> </LI>
+  <LI><A title=阿里“淘宝村”研究报告：60万网店来自乡村 
+  href="http://bbs.chinabyte.com/thread-935640-1-1.html">阿里“淘宝村”研究报告：60万网店来自乡村</A> 
+  </LI>
+  <LI><A title=百度轻应用：用户会买账吗？ 
+  href="http://bbs.chinabyte.com/thread-935619-1-1.html">百度轻应用：用户会买账吗？</A> </LI>
+  <LI><A title="霹雳游侠的现实生活 818各种牛X的车载多媒体系统" 
+  href="http://bbs.chinabyte.com/thread-935198-1-1.html">霹雳游侠的现实生活 
+  818各种牛X的车载多媒体系统</A> </LI>
+  <LI><A title="微信“练摊”理财 是炒作噱头还是颠覆者" 
+  href="http://bbs.chinabyte.com/thread-933314-1-1.html">微信“练摊”理财 是炒作噱头还是颠覆者</A> 
+  </LI></UL></DIV></DIV>
+<SCRIPT type=text/javascript>
+/*cb_文章页300*250*/
+var cpro_id = "u812520";
+</SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/c.js"></SCRIPT>
+
+<DIV id=m-djph class=box>
+<DIV class="hd clearfix">
+<H3>点击排行</H3>
+<UL class="tab-holder clearfix">
+  <LI class=selected><A 
+  href="http://sec.chinabyte.com/more/9725_28295_ph_day_1.shtml">每日排行</A> </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/more/9725_28295_ph_week_1.shtml">每周排行</A> </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/more/9725_28295_ph_mouth_1.shtml">每月排行</A> 
+</LI></UL></DIV>
+<DIV class=bd>
+<DIV class=tab-panel>
+<UL class=list>
+  <LI><A 
+  href="http://sec.chinabyte.com/480/12696980.shtml">抵御DDoS：主动防御与被动防护一个不能少</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/2013.29/">2013-08-13黑帽大会带给CIO们的安全思考</A> 
+  </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/144/12693644.shtml">智简致用、自在云端：陈怡桦“论剑”信息安全</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/165/12688665.shtml">移动恶意软件威胁将呈指数级增长</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/209/12680209.shtml">用心做安全： 
+  Fortinet如何成为“领导者”</A> </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/28/12683528.shtml">黑帽大会启示：带给CIO们的安全思考</A> </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/2013.27/">07-31[13年27期]思科收购Sourcefire为哪般？</A> 
+  </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/183/12703183.shtml">山石网科：全分布式架构实现高性能易扩展</A> 
+  </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/2013.30/">13-08-21[13年30期]黑客不死CIO还要担心IT未来</A>
+  <SCRIPT language=javascript type=text/javascript>sc1();</SCRIPT>
+   </LI></UL></DIV>
+<DIV class="tab-panel hidden">
+<UL class=list>
+  <LI><A href="http://sec.chinabyte.com/292/12698792.shtml">中国计算技术大会 
+  详解360企业安全解决方案</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/436/12700936.shtml">卡巴斯基安全软件多设备版重磅上市</A> 
+  </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/295/12698795.shtml">从韩国攻击事件看APT离你的企业有多远？</A> 
+  </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/233/12698733.shtml">迅雷病毒事件背后：恶意软件流氓了谁？</A> 
+</LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/201/12699701.shtml">企业网络安全体系建设中的问题及对策</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/196/12699696.shtml">信息化时代企业网络安全重要性</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/293/12700793.shtml">美国国土安全局、FBI安全称 
+  Android已威胁全国</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/400/12700900.shtml">企业保护移动领域安全的五个小贴士</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/442/12699942.shtml">cn域名遭史上最凶猛攻击 
+  新浪微博挂了两小时</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/293/12698793.shtml">游戏玩家必看评测 
+  360安全卫士防盗号最强</A> </LI></UL></DIV>
+<DIV class="tab-panel hidden">
+<UL class=list>
+  <LI><A href="http://sec.chinabyte.com/315/12682815.shtml">苹果秋季将推iOS 
+  7软件更新修复伪劣充电器漏洞</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/395/12692395.shtml">网络诈骗让银行和个人损失惨重</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/294/12692294.shtml">企业信息安全系统工程的构建</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/292/12698792.shtml">中国计算技术大会 
+  详解360企业安全解决方案</A> </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/374/12680374.shtml">企业应选择和部署企业数据库加密策略</A> </LI>
+  <LI><A href="http://sec.chinabyte.com/436/12700936.shtml">卡巴斯基安全软件多设备版重磅上市</A> 
+  </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/295/12698795.shtml">从韩国攻击事件看APT离你的企业有多远？</A> 
+  </LI>
+  <LI><A href="http://sec.chinabyte.com/43/12680043.shtml">逐一破解企业十大IT安全神话</A> 
+  </LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/291/12692291.shtml">专访王禄耀：新环境下企业IT安全探讨</A> 
+</LI>
+  <LI><A 
+  href="http://sec.chinabyte.com/386/12680386.shtml">黑帽大会：研究人员用iPhone充电器作为黑客工具</A> 
+  </LI></UL></DIV></DIV></DIV>
+<DIV id=m-btjd class=box>
+<DIV class=hd>
+<H3>比特焦点</H3></DIV>
+<DIV class="bd clearfix">
+<UL>
+  <LI><A class=jd2 title=软交会 
+  href="http://soft.chinabyte.com/cisis_2013/">软交会</A> </LI>
+  <LI><A class=jd2 title="IDF 2013" 
+  href="http://server.chinabyte.com/idf2013/">IDF 2013</A> </LI>
+  <LI><A class=jd3 title=爱普生 
+  href="http://product.chinabyte.com/projector/epson/">爱普生</A> </LI>
+  <LI><A class=jd2 title=MWC 
+  href="http://shang.chinabyte.com/zt/MWC2013/">MWC</A> </LI>
+  <LI><A class=jd1 title=CES href="http://ces.chinabyte.com/">CES</A> </LI>
+  <LI><A class=jd4 title=云计算 href="http://cloud.chinabyte.com/">云计算</A> </LI>
+  <LI><A class=jd2 title=虚拟化 
+  href="http://www.chinabyte.com/more/124579.shtml">虚拟化</A> </LI>
+  <LI><A class=jd2 title=vmware 
+  href="http://com.chinabyte.com/vmware/">vmware</A> </LI>
+  <LI><A class=jd1 title=oracle 
+  href="http://com.chinabyte.com/oracle/">oracle</A> </LI>
+  <LI><A class=jd3 title=微软 href="http://com.chinabyte.com/microsoft/">微软</A> 
+  </LI>
+  <LI><A class=jd1 title=Windows8 href="http://win8.chinabyte.com/">Windows8</A> 
+  </LI>
+  <LI><A class=jd2 title=大数据 href="http://www.chinabyte.com/zq/bigdata/">大数据</A> 
+  </LI>
+  <LI><A class=jd4 title=CMO href="http://cmo.chinabyte.com/">CMO</A> </LI>
+  <LI><A class=jd1 title=CIO href="http://cioclub.chinabyte.com/">CIO</A> </LI>
+  <LI><A class=jd2 title=thinkserver 
+  href="http://www.chinabyte.com/zq/thinkserver/">ThinkServer</A> </LI>
+  <LI><A class=jd4 title=ARM href="http://www.chinabyte.com/zq/arm/">ARM</A> 
+  </LI>
+  <LI><A class=jd2 title="Windows Server 2012" 
+  href="http://www.chinabyte.com/zq/WindowsServer2012/">Windows Server 2012</A> 
+  </LI>
+  <LI><A class=jd3 title=BI href="http://www.chinabyte.com/zq/bi/">BI</A> </LI>
+  <LI><A class=jd3 title=hadoop 
+  href="http://www.chinabyte.com/zq/hadoop/">hadoop</A> </LI>
+  <LI><A class=jd2 title=BI 
+  href="http://www.chinabyte.com/zq/ultrabook/">超级本</A> </LI>
+  <LI><A class=jd1 title=hadoop 
+  href="http://www.chinabyte.com/zq/mobileinformation/">移动信息化</A> 
+</LI></UL></DIV></DIV>
+<DIV id=m-dy class=box>
+<DIV class=hd>
+<H3>邮件订阅</H3></DIV>
+<DIV class="bd clearfix">
+<FORM id=subscribeForm method=post name=subscribeForm 
+action=http://maillist.chinabyte.com/mail/common/subscribe!subscribeTemps.do><INPUT 
+id=siteId name=siteId value=3 type=hidden> <INPUT id=ac name=ac value=subscribe 
+type=hidden> 
+<DIV class=mailbox>
+<DL class=dylist>
+  <DT><LABEL class=fl><INPUT id=mailGroupId name=mailGroupId value=69 
+  type=checkbox><A onmousemove="showLayer('show1')" 
+  onmouseout="hideLayer('show1')"><LABEL 
+  for=mailGroupId1>软件信息化周刊</LABEL></A></LABEL><LABEL class=fl><INPUT 
+  id=mailGroupId name=mailGroupId value=1002 type=checkbox><A 
+  onmousemove="showLayer('show2')" onmouseout="hideLayer('show2')"><LABEL 
+  for=mailGroupId2>商务办公周刊</LABEL></A></LABEL> </DT>
+  <DD id=show1 class=none>
+  <DIV class=layout>
+  <DIV class=t>软件信息化周刊</DIV>
+  <DIV 
+  class=d>比特软件信息化周刊提供以数据库、操作系统和管理软件为重点的全面软件信息化产业热点、应用方案推荐、实用技巧分享等。以最新的软件资讯，最新的软件技巧，最新的软件与服务业内动态来为IT用户找到软捷径。</DIV></DIV></DD>
+  <DD id=show2 class=none>
+  <DIV class=layout>
+  <DIV class=t>商务办公周刊</DIV>
+  <DIV 
+  class=d>比特商务周刊是一个及行业资讯、深度分析、企业导购等为一体的综合性周刊。其中，与中国计量科学研究院合力打造的比特实验室可以为商业用户提供最权威的采购指南。是企业用户不可缺少的智选周刊！</DIV></DIV></DD></DL>
+<DL class=dylist>
+  <DT><LABEL class=fl><INPUT id=mailGroupId name=mailGroupId value=1007 
+  type=checkbox><A onmousemove="showLayer('show3')" 
+  onmouseout="hideLayer('show3')"><LABEL 
+  for=mailGroupId3>网络周刊</LABEL></A></LABEL><LABEL class=fl><INPUT id=mailGroupId 
+  name=mailGroupId value=1004 type=checkbox><A onmousemove="showLayer('show4')" 
+  onmouseout="hideLayer('show4')"><LABEL 
+  for=mailGroupId4>服务器周刊</LABEL></A></LABEL> </DT>
+  <DD id=show3 class=none>
+  <DIV class=layout>
+  <DIV class=t>网络周刊</DIV>
+  <DIV 
+  class=d>比特网络周刊向企业网管员以及网络技术和产品使用者提供关于网络产业动态、技术热点、组网、建网、网络管理、网络运维等最新技术和实用技巧，帮助网管答疑解惑，成为网管好帮手。</DIV></DIV></DD>
+  <DD id=show4 class=none>
+  <DIV class=layout>
+  <DIV class=t>服务器周刊</DIV>
+  <DIV 
+  class=d>比特服务器周刊作为比特网的重点频道之一，主要关注x86服务器，RISC架构服务器以及高性能计算机行业的产品及发展动态。通过最独到的编辑观点和业界动态分析，让您第一时间了解服务器行业的趋势。</DIV></DIV></DD></DL>
+<DL class=dylist>
+  <DT><LABEL class=fl><INPUT id=mailGroupId name=mailGroupId value=1005 
+  type=checkbox><A onmousemove="showLayer('show5')" 
+  onmouseout="hideLayer('show5')"><LABEL 
+  for=mailGroupId5>存储周刊</LABEL></A></LABEL><LABEL class=fl><INPUT id=mailGroupId 
+  name=mailGroupId value=1006 type=checkbox><A onmousemove="showLayer('show6')" 
+  onmouseout="hideLayer('show6')"><LABEL 
+  for=mailGroupId6>安全周刊</LABEL></A></LABEL> </DT>
+  <DD id=show5 class=none>
+  <DIV class=layout>
+  <DIV class=t>存储周刊</DIV>
+  <DIV 
+  class=d>比特存储周刊长期以来，为读者提供企业存储领域高质量的原创内容，及时、全面的资讯、技术、方案以及案例文章，力求成为业界领先的存储媒体。比特存储周刊始终致力于用户的企业信息化建设、存储业务、数据保护与容灾构建以及数据管理部署等方面服务。</DIV></DIV></DD>
+  <DD id=show6 class=none>
+  <DIV class=layout>
+  <DIV class=t>安全周刊 </DIV>
+  <DIV 
+  class=d>比特安全周刊通过专业的信息安全内容建设，为企业级用户打造最具商业价值的信息沟通平台，并为安全厂商提供多层面、多维度的媒体宣传手段。与其他同类网站信息安全内容相比，比特安全周刊运作模式更加独立，对信息安全界的动态新闻更新更快。</DIV></DIV></DD></DL>
+<DL class=dylist>
+  <DT><LABEL class=fl><INPUT id=mailGroupId name=mailGroupId value=2221 
+  type=checkbox><A onmousemove="showLayer('show7')" 
+  onmouseout="hideLayer('show7')"><LABEL 
+  for=mailGroupId7>新闻中心热点推荐</LABEL></A></LABEL><LABEL class=fl><INPUT 
+  id=mailGroupId name=mailGroupId value=9961 type=checkbox><A 
+  onmousemove="showLayer('show8')" onmouseout="hideLayer('show8')"><LABEL 
+  for=mailGroupId8>云计算周刊</LABEL></A></LABEL> </DT>
+  <DD id=show7 class=none>
+  <DIV class=layout>
+  <DIV class=t>新闻中心热点推荐</DIV>
+  <DIV 
+  class=d>新闻中心以独特视角精选一周内最具影响力的行业重大事件或圈内精彩故事，为企业级用户打造重点突出，可读性强，商业价值高的信息共享平台；同时为互联网、IT业界及通信厂商提供一条精准快捷，渗透力强，覆盖面广的媒体传播途径。</DIV></DIV></DD>
+  <DD id=show8 class=none>
+  <DIV class=layout>
+  <DIV class=t>云计算周刊</DIV>
+  <DIV 
+  class=d>比特云计算周刊关注云计算产业热点技术应用与趋势发展，全方位报道云计算领域最新动态。为用户与企业架设起沟通交流平台。包括IaaS、PaaS、SaaS各种不同的服务类型以及相关的安全与管理内容介绍。</DIV></DIV></DD></DL>
+<DL class=dylist>
+  <DT><LABEL class=fl><INPUT id=mailGroupId name=mailGroupId value=12381 
+  type=checkbox><A onmousemove="showLayer('show9')" 
+  onmouseout="hideLayer('show9')"><LABEL 
+  for=mailGroupId9>CIO俱乐部周刊</LABEL></A></LABEL><LABEL class=fl><INPUT 
+  id=mailGroupId name=mailGroupId value=13781 type=checkbox><A 
+  onmousemove="showLayer('show10')" onmouseout="hideLayer('show10')"><LABEL 
+  for=mailGroupId10>IT专家网</LABEL></A></LABEL> </DT>
+  <DD id=show9 class=none>
+  <DIV class=layout>
+  <DIV class=t>CIO俱乐部周刊</DIV>
+  <DIV 
+  class=d>比特CIO俱乐部周刊以大量高端CIO沙龙或专题研讨会以及对明星CIO的深入采访为依托，汇聚中国500强CIO的集体智慧。旨为中国杰出的CIO提供一个良好的互融互通 
+  、促进交流的平台，并持续提供丰富的资讯和服务，探讨信息化建设，推动中国信息化发展引领CIO未来职业发展。</DIV></DIV></DD>
+  <DD id=show10 class=none>
+  <DIV class=layout>
+  <DIV class=t>IT专家网</DIV>
+  <DIV 
+  class=d>IT专家新闻邮件长期以来，以定向、分众、整合的商业模式，为企业IT专业人士以及IT系统采购决策者提供高质量的原创内容，包括IT新闻、评论、专家答疑、技巧和白皮书。此外，IT专家网还为读者提供包括咨询、社区、论坛、线下会议、读者沙龙等多种服务。</DIV></DIV></DD></DL>
+<DL class=dylist>
+  <DT><LABEL class=fl><INPUT id=mailGroupId name=mailGroupId value=14441 
+  type=checkbox><A onmousemove="showLayer('show11')" 
+  onmouseout="hideLayer('show11')"><LABEL 
+  for=mailGroupId9>X周刊</LABEL></A></LABEL> </DT>
+  <DD id=show11 class=none>
+  <DIV class=layout>
+  <DIV class=t>X周刊</DIV>
+  <DIV 
+  class=d>X周刊是一份IT人的技术娱乐周刊，给用户实时传递I最新T资讯、IT段子、技术技巧、畅销书籍，同时用户还能参与我们推荐的互动游戏，给广大的IT技术人士忙碌工作之余带来轻松休闲一刻。</DIV></DIV></DD></DL>
+<DL></DL>
+<DIV class=ezine>
+<DIV class=textbox><INPUT 
+onblur="this.style.color='#8a8a8a';if(this.value=='')this.value='例：abc@chinabyte.com';" 
+id=email class=text 
+onfocus="this.style.color='#000';if(this.value=='例：abc@chinabyte.com')this.value='';" 
+name=email value=例：abc@chinabyte.com><BUTTON 
+onclick=submitSubscribe();>订阅</BUTTON> 
+</DIV></DIV></DIV></FORM></DIV></DIV></ASIDE></SECTION>
+<DIV class=adv_CB_inner_wzydbcolumn advid="19001511_1">
+<SCRIPT language=JavaScript 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/s.htm"></SCRIPT>
+</DIV><SECTION class=clearfix>
+<SCRIPT type=text/javascript>
+/*cb_文章页960*90*/
+var cpro_id = "u812521";
+</SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/c.js"></SCRIPT>
+</SECTION><!-- 页脚 --><FOOTER class=footer>
+<DIV class=footer-nav><A 
+href="http://www.tianjimedia.com/249/11453749.shtml">关于我们</A> | <A 
+href="http://www.tianjimedia.com/english/31/8262031.shtml">About us</A> | <A 
+href="http://www.tianjimedia.com/attorney/">网站律师</A> | <A 
+href="http://www.tianjimedia.com/ar/">天极服务</A> | <A 
+href="http://maillist.chinabyte.com/">电子杂志</A> | <A 
+href="http://rss.chinabyte.com/">RSS订阅</A> | <A 
+href="http://www.tianjimedia.com/invitation/">加入我们</A> | <A 
+href="http://www.tianjimedia.com/tjdt/list/">天极动态</A> | <A 
+href="http://www.chinabyte.com/mtdq">媒体大全</A> | <A 
+href="http://www.chinabyte.com/sitemap.html">网站地图</A> </DIV>
+<DIV class=copyright>
+<P>比特网 版权所有 渝ICP证B2-20030003号</P>
+<P>Copyright (C) 1997-2013 Chinabyte.com, All Rights Reserved</P>
+<P>客户服务、商务合作电话：010-82657868-652 <A 
+href="http://opinion.chinabyte.com/reader/reader.jhtml?sitemapId=1&amp;url=http://www.chinabyte.com&amp;title=比特网" 
+rel=nofollow>在线意见</A></P></DIV></FOOTER>
+<SCRIPT type=text/javascript 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/bar20.htm"></SCRIPT>
+
+<SCRIPT type=text/javascript> 	
+	var url = document.location.href; 
+	var t_loginHTML = ""; 
+	if(customerid!=0) { 
+	if(url.indexOf("ticket") > -1) url= url.substring(0,url.indexOf("ticket")); 
+	if(url.indexOf("?")==url.length-1) url= url.substring(0,url.indexOf("?"));	
+	document.getElementById("login").innerHTML="欢迎您：<a href=http://passport.chinabyte.com/uc/index.do><b>"+nickname+"</b></a><a href=http://passport.chinabyte.com/cas/logout?service="+url+" target=_self>退出</a>";
+	}else{ 
+	if(url.indexOf("ticket") > -1) url= url.substring(0,url.indexOf("ticket")); 
+	if(url.indexOf("?")==url.length-1) url= url.substring(0,url.indexOf("?")); 
+	t_loginHTML += "<a href=http://passport.chinabyte.com?returnurl="+url+" target=_self>登录</a>|<a href=http://passport.chinabyte.com?returnurl="+url+" target=_self>注册</a></span>"; 	
+	document.getElementById("login").innerHTML=t_loginHTML;
+	} 
+</SCRIPT>
+<!-- baidu_tc block_end --><!--广告 预留块---><!-- 监控代码 --><!--鏂癱ounter寮�濮&#65533;-->
+<SCRIPT src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/web-utils.js"></SCRIPT>
+
+<SCRIPT type=text/javascript> 
+initCookie();
+    var re = new RegExp(".*/(\\d+)(_(\\d+))?\\.shtml","ig");
+    var _aid = "-1";
+    if(re.exec(document.location.href) != null){
+       _aid = RegExp.$1
+    }
+sentParamter(_aid,'1');
+</SCRIPT>
+<!--鏂癱ounter缁撴潫-->
+<SCRIPT type=text/javascript>
+
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2ecbfe0013c0738c47f5b157c37b1ca' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+
+<SCRIPT type=text/javascript> 
+initCookie();
+    var re = new RegExp(".*/(\\d+)(_(\\d+))?\\.shtml","ig");
+    var _aid = "-1";
+    if(re.exec(document.location.href) != null){
+       _aid = RegExp.$1
+    }
+sentParamter(_aid,'1');
+</SCRIPT>
+<!-- START GA.js -->
+<SCRIPT type=text/javascript>
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11575536-1']);
+  _gaq.push(['_setDomainName', '.chinabyte.com']);
+  _gaq.push(['_addOrganic', 'baidu', 'word']);
+  _gaq.push(['_addOrganic', 'google', 'q']);
+  _gaq.push(['_addOrganic', 'soso', 'w']);
+  _gaq.push(['_addOrganic', '3721', 'name']);
+  _gaq.push(['_addOrganic', 'yodao', 'q']);
+  _gaq.push(['_addOrganic', 'vnet', 'kw']);
+  _gaq.push(['_addOrganic', 'sogou', 'query']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</SCRIPT>
+<!-- END GA.js --><!-- nuggets -->
+<SCRIPT type=text/javascript>
+  var _paq = _paq || [];
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.chinabyte.com"]);
+  _paq.push(["setDomains", ["*.chinabyte.com"]]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://219.239.88.36:8181/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</SCRIPT>
+<!-- End nuggets Code -->
+<DIV style="POSITION: fixed; BOTTOM: 0px; DISPLAY: none; LEFT: 0px" 
+id=article_code>
+<DIV>
+<P>微信扫描，分享到朋友圈</P></DIV></DIV>
+<STYLE type=text/css>#top-bar {
+	Z-INDEX: 100; WIDTH: 100%; TOP: 0px; LEFT: 0px
+}
+#page-nav {
+	Z-INDEX: 100; WIDTH: 100%; TOP: 30px; LEFT: 0px
+}
+#article_code DIV {
+	POSITION: relative
+}
+#article_code DIV P {
+	POSITION: absolute; TOP: 3px; LEFT: 10px
+}
+</STYLE>
+
+<SCRIPT type=text/javascript>
+var mo=parseInt(document.getElementById('page-nav').getBoundingClientRect().bottom);
+var mo2=parseInt(document.getElementById('top-bar').getBoundingClientRect().bottom);
+String.prototype.hasString = function(g) {
+    if (typeof g == "object") {
+        for (var f = 0,
+        h = g.length; f < h; f++) {
+            if (!this.hasString(g[f])) {
+                return false
+            }
+        }
+        return true
+    } else {
+        if (this.indexOf(g) != -1) {
+            return true
+        }
+    }
+};
+c = navigator.userAgent;
+ie6 = c.hasString("MSIE 6") && !c.hasString("MSIE 7") && !c.hasString("MSIE 8");
+function showHideBar(e){
+	var scrollHeight=document.documentElement.scrollTop||document.body.scrollTop;
+     e = window.event || e;
+     wheel = e.wheelDelta / 120 || -e.detail / 3;
+	if(wheel==1 && scrollHeight>mo ){
+		$("#page-nav").css('position','fixed');
+	}else{
+		$("#page-nav").css('position','static');
+	}
+	if(wheel==1 && scrollHeight>mo2 ){
+		$("#top-bar").css('position','fixed');
+	}else{
+		$("#top-bar").css('position','static');
+	}
+}
+if(!ie6){
+	/*注册事件*/ 
+	if(document.addEventListener){ 
+		document.addEventListener('DOMMouseScroll',showHideBar,false); 
+	}//W3C 
+	window.onmousewheel=document.onmousewheel=showHideBar;//IE/Opera/Chrome 
+}
+if(document.body.clientWidth>1200){$('#article_code').css('display','block')}
+$('#article_code div').append('<img src="http://chart.apis.google.com/chart?cht=qr&&chs=150x150&chl=http://app.chinabyte.com/weixin/article/?aid='+articleID+'" width="150" height="150" border="0" alt="微信扫描，分享到朋友圈">');
+</SCRIPT>
+<!--new counter 20120827-->
+<SCRIPT src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/imp-cb1.js"></SCRIPT>
+<!-- 百分点 -->
+<SCRIPT type=text/javascript charset=utf-8 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/bite_goods.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Windows下DNS%20ID欺骗的原理与实现_安全_比特网_files/copymsg.js"></SCRIPT>
+</BODY></HTML>
